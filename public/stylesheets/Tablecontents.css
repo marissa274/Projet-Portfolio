@@ -1,5 +1,4 @@
 
-
 .title {
   font-size: 8rem;
   font-weight: 800;
@@ -8,15 +7,6 @@
   padding-top: 100px;
  
 }
-
-.description {
-  max-width: 420px;
-  font-size: 0.9rem;
-  color: #ccc49e;
-}
-
-
-
 .btn-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
