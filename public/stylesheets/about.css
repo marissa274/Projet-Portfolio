@@ -7,14 +7,75 @@
   padding-top: 100px; 
 }
 
+
+.about-word{
+  position: relative;
+  
+}
+
+.about-word::after{
+  content: "About";
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  color: rgba(255, 244, 196, 0.15);
+  z-index: -1;
+}
+
+/* ME décalé */
+.me-word{
+  display: inline-block;
+  margin-left: 13rem; 
+  
+  
+   position: relative;
+  
+}
+
+.me-word::before{
+  content: "";
+  position: absolute;
+  left: -12rem;   /* length control */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10rem;   /* line length */
+  height: 2px;
+  background: #FFF4C4;
+  opacity: 0.8;
+  
+}
+
+.me-word::after{
+  content: "Me";
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  color: rgba(255, 244, 196, 0.15);
+  z-index: -1;
+}
+
+
+
+
 .Text {
   font-size: 10rem;
   font-weight: 800;
   line-height: 1;
   color: #FFF4C4;
    position: relative;
-  z-index: 1; 
+
 }
+
+.subtitle{
+  margin-top: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: .9rem;
+  opacity: .85;
+  color: #FFF4C4;
+  
+}
+
 
 .hero-name{
   position: relative; /* anchor for absolute image */
