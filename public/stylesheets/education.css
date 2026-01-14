@@ -1,4 +1,24 @@
 
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  background:
+    radial-gradient(circle, rgba(255,244,196,.12) 1px, transparent 1px),
+    linear-gradient(180deg, #590202 0%, #2a0505 100%);
+
+  background-size:
+    26px 26px,
+    cover;
+
+  background-position:
+    center,
+    center;
+
+  color: #FFF4C4;
+}
+
+
 
 .edu-hero{
   position: relative;
@@ -73,14 +93,27 @@
 
 .edu-photo{
   position: relative;
-  width: min(340px, 70%);
-  aspect-ratio: 3 / 4;
+  width: 360px;
+  height: 520px;   /* controls vertical spacing */
   filter: grayscale(100%);
+  
 }
+
 .edu-photo img{
-  width: 100%;
+  width: 500px;
+  padding-right: 100px;
 
 }
+
+.edu-photo img:first-child{
+  transform: translateX(-40px);
+}
+
+.edu-photo img:last-child{
+  transform: translateX(-300px);
+}
+
+
 
 /* vertical text */
 .edu-vertical{

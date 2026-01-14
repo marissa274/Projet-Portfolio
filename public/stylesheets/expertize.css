@@ -1,0 +1,152 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,244,196,.14), transparent 45%),
+    radial-gradient(circle at 80% 35%, rgba(255,244,196,.10), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(0,0,0,.25), transparent 55%),
+    #590202;
+  color: #FFF4C4;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background: url("../images/image.jpg") no-repeat center 95%;
+  background-size: min(100vw, 800rem);
+
+  opacity: .18;
+  filter: grayscale(100%) contrast(1.05);
+
+  mix-blend-mode: screen;
+}
+
+
+/* PAGE LAYOUT */
+.expertise-page{
+  position: relative;
+  padding-left: clamp(18px, 4vw, 60px);
+  padding-right: clamp(18px, 4vw, 60px);
+}
+
+/* A readable content card (glass) */
+.expertise-card{
+              /* pushes content to the right */
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,244,196,.22);
+  border-radius: 26px;
+  padding: clamp(18px, 3vw, 34px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 30px 70px rgba(0,0,0,.35);
+}
+
+/* Titles */
+.page-title{
+  font-weight: 900;
+  letter-spacing: .5px;
+  font-size: clamp(2.6rem, 5vw, 4.6rem);
+  line-height: 1.02;
+  margin: 0;
+}
+
+.page-subtitle{
+  margin-top: 10px;
+  opacity: .85;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: .9rem;
+}
+
+
+
+/* Skills grid */
+.skills-grid{
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* Skill card (premium) */
+.skill-card{
+  border: 1px solid rgba(255,244,196,.20);
+  background: rgba(0,0,0,.16);
+  border-radius: 18px;
+  padding: 16px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #FFF4C4;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.skill-card i{
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,244,196,.10);
+  border: 1px solid rgba(255,244,196,.18);
+  font-size: 1.05rem;
+}
+
+.skill-card span{
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+.skill-card:hover{
+  transform: translateY(-3px);
+  border-color: rgba(255,244,196,.45);
+  background: rgba(0,0,0,.22);
+}
+
+/* OPTIONAL: softer top line */
+.edu-top .small{
+  opacity: .7;
+}
+
+/* Responsive */
+@media (max-width: 992px){
+  body::before{
+    background-position: left 10%;
+    background-size: min(55vw, 520px);
+    opacity: .12;
+  }
+
+  .skills-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .expertise-card{
+    margin-left: 0; /* center */
+  }
+}
+
+@media (max-width: 576px){
+  body::before{
+    display: none; /* keeps mobile clean */
+  }
+
+  .skills-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .expertise-page{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
