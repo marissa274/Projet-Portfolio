@@ -60,27 +60,38 @@ body{
   min-height: calc(100vh - 120px);
 }
 
-.edu-left{
+.edu-left {
   max-width: 560px;
 }
 
-.edu-block h2{
-  font-weight: 800;
-  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
-  margin: 0 0 10px 0;
-  letter-spacing: .2px;
-}
-.edu-block h2 span{
-  font-weight: 700;
-  opacity: .85;
+.edu-block {
+  margin-bottom: 3rem;
 }
 
-.description{
+.edu-block h2 {
+  font-weight: 800;
+  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+  margin-bottom: 12px;
+  letter-spacing: 0.2px;
+  line-height: 1.25;
+}
+
+.edu-block h2 span {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+.description {
   font-size: 0.98rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: #FFF4C4;
   max-width: 520px;
+  margin-bottom: 12px;
 }
+
 
 /* RIGHT SIDE (image + vertical text) */
 .edu-right{
