@@ -91,3 +91,55 @@
   width: 500px;      /* control size */
   z-index: 2;        /* image on top */
 }
+
+
+/* CTA container */
+.cta{
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+/* Base pill */
+.cta-pill{
+  height: 48px;
+  padding: 0 28px;
+  border-radius: 999px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1rem;
+
+  transition: transform .18s ease, opacity .18s ease, background .18s ease;
+}
+
+/* Filled button */
+.cta-pill.fill{
+  background: #FFF4C4;
+  color: #111;
+}
+
+/* Outline button */
+.cta-pill.outline{
+  border: 1px solid #FFF4C4;
+  color: #FFF4C4;
+  background: transparent;
+}
+
+/* Hover effect */
+.cta-pill:hover{
+  transform: translateY(-2px);
+  opacity: .9;
+}
+
+/* Mobile */
+@media (max-width: 576px){
+  .cta{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
