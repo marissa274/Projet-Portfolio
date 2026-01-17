@@ -52,15 +52,15 @@
           <button class="cta-pill fill" type="button" disabled aria-disabled="true">
             <i class="fa-solid fa-phone"></i>
             Book a call
-            </button>
+          </button>
 
 
 
-            <!-- Put your PDF here: /public/files/Marissa-CV.pdf -->
-            <a class="cta-pill outline" href="./public/files/Marissa-CV.pdf" download>
-              <i class="fa-solid fa-download"></i>
-              Download CV
-            </a>
+          <!-- Put your PDF here: /public/files/Marissa-CV.pdf -->
+          <a class="cta-pill outline" href="./public/files/Marissa-CV.pdf" download>
+            <i class="fa-solid fa-download"></i>
+            Download CV
+          </a>
         </div>
 
         <!-- OPTIONAL FORM (pro) -->
@@ -94,17 +94,18 @@
             </div>
           </div>
 
-          <form class="contact-form">
+          <form id="contactForm" class="contact-form">
             <label class="form-label">Name</label>
-            <input class="form-input" type="text" placeholder="Your name" />
+            <input id="name" class="form-input" type="text" placeholder="Your name" required />
 
             <label class="form-label mt-3">Email</label>
-            <input class="form-input" type="email" placeholder="your@email.com" />
+            <input id="email" class="form-input" type="email" placeholder="your@email.com" required />
 
             <label class="form-label mt-3">Message</label>
-            <textarea class="form-input form-textarea" placeholder="Write your message..."></textarea>
+            <textarea id="message" class="form-input form-textarea" placeholder="Write your message..."
+              required></textarea>
 
-            <button class="cta-pill fill mt-4" type="button">
+            <button id="sendBtn" class="cta-pill fill mt-4" type="submit">
               <i class="fa-solid fa-paper-plane"></i>
               Send
             </button>
@@ -113,6 +114,8 @@
               (Form is UI only for now — later you can connect it to a backend.)
             </p>
           </form>
+
+
         </div>
 
       </div>
@@ -130,6 +133,9 @@
 
     </div>
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script type="module" src="./public/scripts/sendEmail.js"></script>
 
 </body>
 
