@@ -16,22 +16,27 @@
 
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="portfolio-navbar">
-    <div class="nav-left">
-      <a href="index.html" class="nav-brand">Portfolio</a>
-    </div>
+<nav class="portfolio-navbar">
+  <div class="nav-left">
+    <a href="index.html" class="nav-brand">Portfolio</a>
 
-    <div class="nav-right">
-      <a href="about.html" class="nav-pill outline">About</a>
-      <a href="education.html" class="nav-pill outline">Education</a>
-      <a href="expertize.html" class="nav-pill outline">Expertise</a>
-      <a href="projects.html" class="nav-pill outline">Projects</a>
-      <a href="contact.html" class="nav-pill fill active">Contact</a>
-    </div>
-  </nav>
+    
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
-  <!-- PAGE -->
+  <div class="nav-right" id="navMenu">
+    <a href="about.html" class="nav-pill outline">About</a>
+    <a href="education.html" class="nav-pill fill">Education</a>
+    <a href="expertize.html" class="nav-pill fill active">Expertise</a>
+    <a href="projects.html" class="nav-pill fill">Projects</a>
+    <a href="contact.html" class="nav-pill outline">Contact</a>
+  </div>
+</nav>
+
+
+
   <main class="container-fluid contact-page min-vh-100 d-flex align-items-center">
     <div class="container-fluid py-5 px-5">
 
@@ -46,9 +51,9 @@
           </p>
         </div>
 
-        <!-- CTA BUTTONS -->
+       
         <div class="contact-cta">
-          <!-- Replace the number below with YOUR real number -->
+         
           <button class="cta-pill fill" type="button" disabled aria-disabled="true">
             <i class="fa-solid fa-phone"></i>
             Book a call
@@ -56,14 +61,14 @@
 
 
 
-          <!-- Put your PDF here: /public/files/Marissa-CV.pdf -->
+         
           <a class="cta-pill outline" href="./public/files/marissaNewCV.pdf" download>
             <i class="fa-solid fa-download"></i>
             Download CV
           </a>
         </div>
 
-        <!-- OPTIONAL FORM (pro) -->
+       
         <div class="contact-grid">
           <div class="contact-info">
             <div class="info-row">
@@ -133,6 +138,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <script type="module" src="./dist/scripts/sendEmail.js"></script>
+  <script  type="module" src="./dist/scripts/navbar.js"></script>
 
 </body>
 

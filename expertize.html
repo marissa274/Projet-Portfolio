@@ -15,13 +15,17 @@
 
 <body>
 
-    <nav class="portfolio-navbar">
+  <nav class="portfolio-navbar">
   <div class="nav-left">
-     <a href="index.html" class="nav-brand">Portfolio</a>
+    <a href="index.html" class="nav-brand">Portfolio</a>
+
     
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 
-  <div class="nav-right">
+  <div class="nav-right" id="navMenu">
     <a href="about.html" class="nav-pill outline">About</a>
     <a href="education.html" class="nav-pill fill">Education</a>
     <a href="expertize.html" class="nav-pill fill active">Expertise</a>
@@ -29,6 +33,7 @@
     <a href="contact.html" class="nav-pill outline">Contact</a>
   </div>
 </nav>
+
 
   <main class=" expertise-page container-fluid min-vh-100 d-flex ">
     <div class="container-fluid py-5 px-5">
@@ -42,7 +47,7 @@
                 </a>
             </div>
 
-            <!-- TITLE -->
+            
             <div class="mb-4">
                 <h1 class="page-title mb-1">Expertise</h1>
                 <div class="page-subtitle">Expertize</div>
@@ -51,7 +56,7 @@
                 </p>
             </div>
 
-            <!-- SKILLS GRID -->
+          
             <div class="skills-grid mt-4 py-5">
                 <div class="skill-card"><i class="fa-brands fa-java"></i><span>Java</span></div>
                 <div class="skill-card"><i class="fa-brands fa-swift"></i><span>Swift</span></div>
@@ -67,5 +72,8 @@
         </div>
     </div>
   </main>
+
+
+   <script  type="module" src="./dist/scripts/navbar.js"></script>
 </body>
 </html>

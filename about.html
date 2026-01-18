@@ -17,20 +17,25 @@
 </head>
 
 <body>
-    <nav class="portfolio-navbar">
-        <div class="nav-left">
-            <a href="index.html" class="nav-brand">Portfolio</a>
+<nav class="portfolio-navbar">
+  <div class="nav-left">
+    <a href="index.html" class="nav-brand">Portfolio</a>
 
-        </div>
+ 
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
-        <div class="nav-right">
-            <a href="about.html" class="nav-pill outline">About</a>
-            <a href="education.html" class="nav-pill fill">Education</a>
-            <a href="expertize.html" class="nav-pill fill active">Expertise</a>
-            <a href="projects.html" class="nav-pill fill">Projects</a>
-            <a href="contact.html" class="nav-pill outline">Contact</a>
-        </div>
-    </nav>
+  <div class="nav-right" id="navMenu">
+    <a href="about.html" class="nav-pill outline">About</a>
+    <a href="education.html" class="nav-pill fill">Education</a>
+    <a href="expertize.html" class="nav-pill fill active">Expertise</a>
+    <a href="projects.html" class="nav-pill fill">Projects</a>
+    <a href="contact.html" class="nav-pill outline">Contact</a>
+  </div>
+</nav>
+
     <div class="d-flex justify-content-between align-items-center pt-4 px-4">
         <span class="small text-muted">Creative Presentation</span>
 
@@ -52,7 +57,7 @@
                 <img src="./public/images/Subject.png" alt="about me image" class="hero-img">
             </div>
 
-            <!-- LEFT SIDE : TEXT -->
+           
             <div class="  space col-md-6 text-left ">
 
                 <h1 class="Secondtitle">
@@ -76,13 +81,13 @@
                 </p>
 
 
-
+                <div class="cta">
+                        <a href="projects.html" class="cta-pill fill">View Projects</a>
+                        <a href="contact.html" class="cta-pill outline">Contact</a>
+                    </div>
 
             </div>
-            <div class="cta">
-                <a href="projects.html" class="cta-pill fill">View Projects</a>
-                <a href="contact.html" class="cta-pill outline">Contact</a>
-            </div>
+            
 
 
 
@@ -91,7 +96,7 @@
         </div>
     </div>
 
-
+   <script  type="module" src="./dist/scripts/navbar.js"></script>
 </body>
 
 </html>

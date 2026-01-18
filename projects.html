@@ -16,22 +16,26 @@
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="portfolio-navbar">
-        <div class="nav-left">
-            <a href="index.html" class="nav-brand">Portfolio</a>
-        </div>
+<nav class="portfolio-navbar">
+  <div class="nav-left">
+    <a href="index.html" class="nav-brand">Portfolio</a>
 
-        <div class="nav-right">
-            <a href="about.html" class="nav-pill outline">About</a>
-            <a href="education.html" class="nav-pill outline">Education</a>
-            <a href="expertize.html" class="nav-pill outline">Expertise</a>
-            <a href="projects.html" class="nav-pill fill active">Projects</a>
-            <a href="contact.html" class="nav-pill outline">Contact</a>
-        </div>
-    </nav>
+  
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
-    <!-- PAGE -->
+  <div class="nav-right" id="navMenu">
+    <a href="about.html" class="nav-pill outline">About</a>
+    <a href="education.html" class="nav-pill fill">Education</a>
+    <a href="expertize.html" class="nav-pill fill active">Expertise</a>
+    <a href="projects.html" class="nav-pill fill">Projects</a>
+    <a href="contact.html" class="nav-pill outline">Contact</a>
+  </div>
+</nav>
+
+    
     <main class="container-fluid projects-page">
         <div class="container-fluid py-5 px-5">
 
@@ -42,10 +46,10 @@
                 </p>
             </header>
 
-            <!-- GRID -->
+            
             <section class="projects-grid">
 
-                <!-- PROJECT CARD (copy this block for each project) -->
+                
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/homematchlogo.png" alt="Project thumbnail">
@@ -76,7 +80,7 @@
                     </div>
                 </article>
 
-                <!-- EXAMPLE 2 -->
+               
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/teora.png" alt="Project thumbnail">
@@ -105,7 +109,7 @@
                     </div>
                 </article>
 
-                <!-- EXAMPLE 3 -->
+               
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/project-placeholder.png" alt="Project thumbnail">
@@ -135,7 +139,7 @@
                 </article>
 
 
-                <!-- Pokedex MVVM -->
+              
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/pokedex.png" alt="Pokedex MVVM">
@@ -159,7 +163,7 @@
                     </div>
                 </article>
 
-                <!-- NutriLog -->
+             
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/nutrilog-logo.png" alt="NutriLog">
@@ -183,7 +187,7 @@
                     </div>
                 </article>
 
-                <!-- Platformer game -->
+           
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/platformer.png" alt="Platformer Game">
@@ -206,7 +210,7 @@
                     </div>
                 </article>
 
-                <!-- Meteo -->
+              
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/meteo.png" alt="Météo App">
@@ -230,7 +234,7 @@
                     </div>
                 </article>
 
-                <!-- Popcorn TV -->
+              
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/popcorntv.png" alt="Popcorn TV">
@@ -279,6 +283,8 @@
 
         </div>
     </main>
+
+     <script  type="module" src="./dist/scripts/navbar.js"></script>
 
 </body>
 

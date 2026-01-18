@@ -15,22 +15,27 @@
 </head>
 
 <body>
-  <nav class="portfolio-navbar">
-    <div class="nav-left">
-      <a href="index.html" class="nav-brand">Portfolio</a>
+<nav class="portfolio-navbar">
+  <div class="nav-left">
+    <a href="index.html" class="nav-brand">Portfolio</a>
 
-    </div>
+  
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
-    <div class="nav-right">
-      <a href="about.html" class="nav-pill outline">About</a>
-      <a href="education.html" class="nav-pill fill">Education</a>
-      <a href="expertize.html" class="nav-pill fill active">Expertise</a>
-      <a href="projects.html" class="nav-pill fill">Projects</a>
-      <a href="contact.html" class="nav-pill outline">Contact</a>
-    </div>
-  </nav>
+  <div class="nav-right" id="navMenu">
+    <a href="about.html" class="nav-pill outline">About</a>
+    <a href="education.html" class="nav-pill fill">Education</a>
+    <a href="expertize.html" class="nav-pill fill active">Expertise</a>
+    <a href="projects.html" class="nav-pill fill">Projects</a>
+    <a href="contact.html" class="nav-pill outline">Contact</a>
+  </div>
+</nav>
+
   <section class="edu-hero">
-    <!-- top small header (optional) -->
+
     <div class="edu-top">
       <span class="small text-white-50">Creative Presentation</span>
 
@@ -41,7 +46,7 @@
     </div>
 
     <div class="edu-wrap">
-      <!-- LEFT TEXT -->
+     
       <div class="edu-left">
 
         <article class="edu-block">
@@ -92,7 +97,7 @@
       </div>
 
 
-      <!-- RIGHT VISUAL -->
+      
       <div class="edu-right">
         <div class="edu-photo">
           <img src="./public/images/IMG_9576.png" alt="Top laptop" />
@@ -104,6 +109,8 @@
       </div>
     </div>
   </section>
+
+   <script  type="module" src="./dist/scripts/navbar.js"></script>
 </body>
 
 </html>

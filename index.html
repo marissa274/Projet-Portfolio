@@ -19,13 +19,17 @@
 </head>
 <body>
 
-    <nav class="portfolio-navbar">
+<nav class="portfolio-navbar">
   <div class="nav-left">
-     <a href="index.html" class="nav-brand">Portfolio</a>
-    
+    <a href="index.html" class="nav-brand">Portfolio</a>
+
+  
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 
-  <div class="nav-right">
+  <div class="nav-right" id="navMenu">
     <a href="about.html" class="nav-pill outline">About</a>
     <a href="education.html" class="nav-pill fill">Education</a>
     <a href="expertize.html" class="nav-pill fill active">Expertise</a>
@@ -40,9 +44,7 @@
 
   <div class="container-fluid h-100 position-relative text-light">
 
-    <!-- <img src="./public/images/p1.webp" class="img-fluid" alt="Image responsive"> -->
-
-    <!-- Top -->
+ 
     <div class="d-flex justify-content-between align-items-center pt-4 px-4">
       <span class="small text-muted">Creative Presentation</span>
 
@@ -52,21 +54,24 @@
      </a>
   </div>
 
-    <!-- Title -->
-    <div class=" d-flex justify-content-center align-items-center vh-100">
-      <p class = "hero-subtitle"> Marissa's</p>
-      <h1 class="hero-title text-center">
-        POR<span class="outline">TF</span>OLIO
-      </h1>
-    </div>
+   
+<div class="hero-center d-flex justify-content-center align-items-center vh-100 position-relative">
+  <p class="hero-subtitle m-0">Marissa's</p>
 
-    <!-- Bottom -->
+  <h1 class="hero-title text-center m-0">
+    POR<span class="outline">TF</span>OLIO
+  </h1>
+</div>
+
+
+  
     <div class="d-flex justify-content-between align-items-end px-4 pb-4 bottom-text">
       <span>Anna Katrina Marchesi</span>
       <span>www.reallygreatsite.com</span>
     </div>
   </div>
 
+   <script  type="module" src="./dist/scripts/navbar.js"></script>
 
 </body>
 </html>

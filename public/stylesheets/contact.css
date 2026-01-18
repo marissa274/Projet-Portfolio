@@ -48,7 +48,6 @@ body{
   pointer-events: none;
 }
 
-/* Decorative vertical line */
 .contact-right-text::before{
   content: "";
   position: absolute;
@@ -78,7 +77,13 @@ body{
   box-shadow: 0 30px 70px rgba(0,0,0,.35);
 }
 
-/* CTA */
+.contact-page{
+  padding-top: 40px;
+  position: relative;
+}
+
+
+
 .contact-cta{
   display: flex;
   gap: 14px;
@@ -120,7 +125,7 @@ body{
 
 
 
-/* content layout */
+
 .contact-grid{
   margin-top: 28px;
   display: grid;
@@ -173,7 +178,7 @@ body{
   text-decoration: underline;
 }
 
-/* form */
+
 .contact-form{
   border: 1px solid rgba(255,244,196,.18);
   background: rgba(0,0,0,.14);
@@ -214,8 +219,76 @@ body{
   margin: 0;
 }
 
-/* responsive */
+
 @media (max-width: 992px){
   .contact-card{ margin-left: 0; }
   .contact-grid{ grid-template-columns: 1fr; }
+}
+
+
+
+
+@media (max-width: 1200px){
+  
+  .contact-right-text{
+    right: 2%;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 992px){
+ 
+  .contact-page{
+    padding-top: 24px;
+  }
+
+  
+  .contact-right-text{
+    position: static;
+    transform: none;
+    max-width: 100%;
+    margin-top: 22px;
+    padding-left: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .contact-right-text::before{
+    display: none;
+  }
+
+ 
+  .contact-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px){
+  
+  .contact-page .container-fluid.py-5.px-5{
+    padding: 16px !important;
+  }
+
+  
+  .contact-cta{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-pill{
+    width: 100%;
+    justify-content: center;
+  }
+
+  
+  .contact-card{
+    border-radius: 20px;
+    padding: 18px;
+  }
+
+  
+  .page-title{
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
 }

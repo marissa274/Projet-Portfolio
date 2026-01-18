@@ -32,16 +32,16 @@ body::before{
 }
 
 
-/* PAGE LAYOUT */
+
 .expertise-page{
   position: relative;
   padding-left: clamp(18px, 4vw, 60px);
   padding-right: clamp(18px, 4vw, 60px);
 }
 
-/* A readable content card (glass) */
+
 .expertise-card{
-              /* pushes content to the right */
+              
   background: rgba(0,0,0,.18);
   border: 1px solid rgba(255,244,196,.22);
   border-radius: 26px;
@@ -50,7 +50,7 @@ body::before{
   box-shadow: 0 30px 70px rgba(0,0,0,.35);
 }
 
-/* Titles */
+
 .page-title{
   font-weight: 900;
   letter-spacing: .5px;
@@ -70,7 +70,7 @@ body::before{
 
 
 
-/* Skills grid */
+
 .skills-grid{
   margin-top: 26px;
   display: grid;
@@ -78,7 +78,7 @@ body::before{
   gap: 14px;
 }
 
-/* Skill card (premium) */
+
 .skill-card{
   border: 1px solid rgba(255,244,196,.20);
   background: rgba(0,0,0,.16);
@@ -113,12 +113,12 @@ body::before{
   background: rgba(0,0,0,.22);
 }
 
-/* OPTIONAL: softer top line */
+
 .edu-top .small{
   opacity: .7;
 }
 
-/* Responsive */
+
 @media (max-width: 992px){
   body::before{
     background-position: left 10%;
@@ -131,13 +131,13 @@ body::before{
   }
 
   .expertise-card{
-    margin-left: 0; /* center */
+    margin-left: 0; 
   }
 }
 
 @media (max-width: 576px){
   body::before{
-    display: none; /* keeps mobile clean */
+    display: none; 
   }
 
   .skills-grid{

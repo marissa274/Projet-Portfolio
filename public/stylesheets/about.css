@@ -22,7 +22,7 @@
   z-index: -1;
 }
 
-/* ME décalé */
+
 .me-word{
   display: inline-block;
   margin-left: 13rem; 
@@ -35,10 +35,10 @@
 .me-word::before{
   content: "";
   position: absolute;
-  left: -12rem;   /* length control */
+  left: -12rem;   
   top: 50%;
   transform: translateY(-50%);
-  width: 10rem;   /* line length */
+  width: 10rem;   
   height: 2px;
   background: #FFF4C4;
   opacity: 0.8;
@@ -78,29 +78,29 @@
 
 
 .hero-name{
-  position: relative; /* anchor for absolute image */
+  position: relative; 
   width: 100%;
 }
 
 
-/* IMAGE ON TOP */
+
 .hero-img{
   position: absolute;
-  top: 100px;        /* move image up/down */
-  right: 10%;        /* move image left/right */
-  width: 500px;      /* control size */
-  z-index: 2;        /* image on top */
+  top: 100px;        
+  right: 10%;        
+  width: 500px;      
+  z-index: 2;       
 }
 
 
-/* CTA container */
+
 .cta{
   display: flex;
   gap: 16px;
   margin-top: 28px;
 }
 
-/* Base pill */
+
 .cta-pill{
   height: 48px;
   padding: 0 28px;
@@ -117,29 +117,117 @@
   transition: transform .18s ease, opacity .18s ease, background .18s ease;
 }
 
-/* Filled button */
+
 .cta-pill.fill{
   background: #FFF4C4;
   color: #111;
 }
 
-/* Outline button */
+
 .cta-pill.outline{
   border: 1px solid #FFF4C4;
   color: #FFF4C4;
   background: transparent;
 }
 
-/* Hover effect */
+
 .cta-pill:hover{
   transform: translateY(-2px);
   opacity: .9;
 }
 
-/* Mobile */
+
 @media (max-width: 576px){
   .cta{
     flex-direction: column;
     align-items: flex-start;
   }
 }
+
+
+.hero-name {
+  position: relative;
+  width: 100%;
+}
+
+
+.hero-img {
+  position: absolute;
+  top: 100px;
+  right: 10%;
+  width: 500px;
+  height: auto;
+  z-index: 2;
+}
+
+
+.cta {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+
+
+@media (max-width: 992px) {
+  
+  .Text {
+    font-size: clamp(2.8rem, 9vw, 6rem);
+  }
+
+  .subtitle {
+    font-size: clamp(0.75rem, 2.2vw, 0.95rem);
+    letter-spacing: 1.2px;
+  }
+
+ 
+  .hero-img {
+    width: min(380px, 60vw);
+    right: 4%;
+    top: 120px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .row.w-100.h-100.p-5.px-5 {
+    padding: 1.25rem !important;
+  }
+
+
+  .hero-img {
+    position: static;    
+    display: block;
+    width: min(320px, 90%);
+    margin: 16px auto 0; 
+  }
+
+  
+  .Secondtitle {
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
+    padding-top: 32px;
+  }
+
+  
+  .me-word {
+    margin-left: 3.5rem;
+  }
+
+  .me-word::before {
+    left: -3.2rem;
+    width: 2.6rem;
+  }
+
+  
+  .cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-pill {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
