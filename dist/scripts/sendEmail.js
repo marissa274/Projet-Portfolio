@@ -19,7 +19,7 @@ function isValidEmail(email) {
 document.addEventListener("DOMContentLoaded", () => {
     const form = qs("#contactForm");
     const btn = qs("#sendBtn");
-  
+    // ✅ Mets TES vraies valeurs EmailJS ici
     const PUBLIC_KEY = "I2NurxGvdh9J0q-bF";
     const SERVICE_ID = "service_7r2pxfe";
     const TEMPLATE_ID = "template_6sb0sko";

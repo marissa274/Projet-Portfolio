@@ -16,26 +16,26 @@
 
 <body>
 
-<nav class="portfolio-navbar">
-  <div class="nav-left">
-    <a href="index.html" class="nav-brand">Portfolio</a>
+    <nav class="portfolio-navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-brand">Portfolio</a>
 
-  
-    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
 
-  <div class="nav-right" id="navMenu">
-    <a href="about.html" class="nav-pill outline">About</a>
-    <a href="education.html" class="nav-pill fill">Education</a>
-    <a href="expertize.html" class="nav-pill fill active">Expertise</a>
-    <a href="projects.html" class="nav-pill fill">Projects</a>
-    <a href="contact.html" class="nav-pill outline">Contact</a>
-  </div>
-</nav>
+            <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
 
-    
+        <div class="nav-right" id="navMenu">
+            <a href="about.html" class="nav-pill outline">About</a>
+            <a href="education.html" class="nav-pill fill">Education</a>
+            <a href="expertize.html" class="nav-pill fill active">Expertise</a>
+            <a href="projects.html" class="nav-pill fill">Projects</a>
+            <a href="contact.html" class="nav-pill outline">Contact</a>
+        </div>
+    </nav>
+
+
     <main class="container-fluid projects-page">
         <div class="container-fluid py-5 px-5">
 
@@ -46,10 +46,10 @@
                 </p>
             </header>
 
-            
+
             <section class="projects-grid">
 
-                
+
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/homematchlogo.png" alt="Project thumbnail">
@@ -60,6 +60,8 @@
                         <p class="project-desc">
                             iOS app concept built with SwiftUI (listings, search, and clean UI components).
                         </p>
+
+
 
                         <div class="project-tags">
                             <span class="tag">SwiftUI</span>
@@ -73,14 +75,17 @@
                             <a class="btn-ghost" href="#" target="_blank">
                                 <i class="fa-brands fa-github"></i> Code
                             </a>
-                            <a class="btn-fill" href="#" target="_blank">
-                                <i class="fa-solid fa-arrow-up-right-from-square"> <a href="http://"></a></i> Live
-                            </a>
+
+                            <button class="btn-fill js-open-video" type="button" data-video="public/media/video1.mp4">
+                                <i class="fa-solid fa-play"></i> Live
+                            </button>
+
                         </div>
+
                     </div>
                 </article>
 
-               
+
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/teora.png" alt="Project thumbnail">
@@ -109,10 +114,10 @@
                     </div>
                 </article>
 
-               
+
                 <article class="project-card">
                     <div class="project-thumb">
-                        <img src="./public/images/project-placeholder.png" alt="Project thumbnail">
+                        <img src="./public/images/esp32-iot-lab.png" alt="Project thumbnail">
                     </div>
 
                     <div class="project-body">
@@ -128,7 +133,7 @@
                         </div>
 
                         <div class="project-actions">
-                            <a class="btn-ghost" href="#" target="_blank">
+                            <a class="btn-ghost" href="" target="_blank">
                                 <i class="fa-solid fa-file-lines"></i> Notes
                             </a>
                             <a class="btn-fill" href="#" target="_blank">
@@ -139,7 +144,7 @@
                 </article>
 
 
-              
+
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/pokedex.png" alt="Pokedex MVVM">
@@ -156,14 +161,20 @@
                             <span class="tag">API</span>
                         </div>
                         <div class="project-actions">
-                            <a class="btn-ghost" href="#" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
-                            <a class="btn-fill" href="#" target="_blank"><i
-                                    class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                            <a class="btn-ghost" href="#" target="_blank">
+                                <i class="fa-brands fa-github"></i> Code
+                            </a>
+
+                          
+                            <button class="btn-fill js-open-video" type="button" data-video="public/media/video3.mov">
+                                <i class="fa-solid fa-play"></i> Live
+                            </button>
                         </div>
+
                     </div>
                 </article>
 
-             
+
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/nutrilog-logo.png" alt="NutriLog">
@@ -179,15 +190,20 @@
                             <span class="tag">SwiftData</span>
                             <span class="tag">iOS</span>
                         </div>
-                        <div class="project-actions">
-                            <a class="btn-ghost" href="#" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
-                            <a class="btn-fill" href="#" target="_blank"><i
-                                    class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                          <div class="project-actions">
+                            <a class="btn-ghost" href="#" target="_blank">
+                                <i class="fa-brands fa-github"></i> Code
+                            </a>
+
+                          
+                            <button class="btn-fill js-open-video" type="button" data-video="public/media/video2.mov">
+                                <i class="fa-solid fa-play"></i> Live
+                            </button>
                         </div>
                     </div>
                 </article>
 
-           
+
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/platformer.png" alt="Platformer Game">
@@ -210,7 +226,7 @@
                     </div>
                 </article>
 
-              
+
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/meteo.png" alt="Météo App">
@@ -228,13 +244,13 @@
                         </div>
                         <div class="project-actions">
                             <a class="btn-ghost" href="#" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
-                            <a class="btn-fill" href="#" target="_blank"><i
+                            <a class="btn-fill" href="https://tp-meteoweb-main.vercel.app/" target="_blank"><i
                                     class="fa-solid fa-arrow-up-right-from-square"></i> Live</a>
                         </div>
                     </div>
                 </article>
 
-              
+
                 <article class="project-card">
                     <div class="project-thumb">
                         <img src="./public/images/popcorntv.png" alt="Popcorn TV">
@@ -249,10 +265,15 @@
                             <span class="tag">Swift</span>
                             <span class="tag">UI</span>
                         </div>
-                        <div class="project-actions">
-                            <a class="btn-ghost" href="#" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
-                            <a class="btn-fill" href="#" target="_blank"><i
-                                    class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                      <div class="project-actions">
+                            <a class="btn-ghost" href="#" target="_blank">
+                                <i class="fa-brands fa-github"></i> Code
+                            </a>
+
+                          
+                            <button class="btn-fill js-open-video" type="button" data-video="public/media/video1.mp4">
+                                <i class="fa-solid fa-play"></i> Live
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -284,7 +305,22 @@
         </div>
     </main>
 
-     <script  type="module" src="./dist/scripts/navbar.js"></script>
+    <div class="video-modal hidden" id="videoModal">
+        <div class="video-modal-content" id="videoModalContent">
+            <button class="video-close" id="closeDemo" type="button">&times;</button>
+
+            <div class="phone-frame">
+                <video controls playsinline preload="metadata" class="video-player" id="demoVideo">
+                    <source id="demoSource" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module" src="./dist/scripts/navbar.js"></script>
+    <script type="module" src="./dist/scripts/video.js"></script>
 
 </body>
 
