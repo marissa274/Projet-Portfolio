@@ -20,6 +20,8 @@ function openModalWith(src: string) {
   });
 }
 
+
+
 function closeModal() {
   if (!modal || !video) return;
   video.pause();
