@@ -119,6 +119,16 @@ body::before{
 }
 
 
+.skill-card span{
+  white-space: normal;
+  text-align: center;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  line-height: 1.2;
+}
+
+
+
 @media (max-width: 992px){
   body::before{
     background-position: left 10%;
@@ -148,5 +158,22 @@ body::before{
   .expertise-page{
     padding-left: 16px;
     padding-right: 16px;
+  }
+}
+
+
+@media (max-width: 480px){
+
+  .skills-grid{
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 12px;
+  }
+
+  .skill-card{
+    padding: 14px 10px;
+  }
+
+  .skill-card span{
+    font-size: .9rem;
   }
 }
