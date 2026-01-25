@@ -15,131 +15,125 @@
 </head>
 
 <body>
+  <nav class="portfolio-navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-brand">Portfolio</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
 
-<nav class="portfolio-navbar">
-  <div class="nav-left">
-    <a href="index.html" class="nav-brand">Portfolio</a>
+    <div class="nav-right" id="navMenu">
+      <a href="about.html" class="nav-pill outline">About</a>
+      <a href="education.html" class="nav-pill fill">Education</a>
+      <a href="expertize.html" class="nav-pill fill">Expertise</a>
+      <a href="projects.html" class="nav-pill fill">Projects</a>
+      <a href="contact.html" class="nav-pill outline active">Contact</a>
+    </div>
+  </nav>
 
-    
-    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+  <main class="contact-page">
+    <div class="contact-wrap">
 
-  <div class="nav-right" id="navMenu">
-    <a href="about.html" class="nav-pill outline">About</a>
-    <a href="education.html" class="nav-pill fill">Education</a>
-    <a href="expertize.html" class="nav-pill fill active">Expertise</a>
-    <a href="projects.html" class="nav-pill fill">Projects</a>
-    <a href="contact.html" class="nav-pill outline">Contact</a>
-  </div>
-</nav>
+      <!-- ✅ NEW: layout wrapper (card gauche / texte droite) -->
+      <div class="contact-layout">
 
+        <!-- ✅ LEFT -->
+        <div class="contact-card">
+          <div class="contact-header">
+            <h1 class="page-title">Get in Touch</h1>
+            <p class="description mb-0">
+              Let’s connect! You can call me directly or download my CV.
+            </p>
+          </div>
 
+          <div class="contact-cta">
+            <button class="cta-pill fill" type="button" disabled aria-disabled="true">
+              <i class="fa-solid fa-phone"></i>
+              Book a call
+            </button>
 
-  <main class="container-fluid contact-page min-vh-100 d-flex align-items-center">
-   <div class="contact-wrap">
+            <a class="cta-pill outline" href="./public/files/marissaNewCV.pdf" download>
+              <i class="fa-solid fa-download"></i>
+              Download CV
+            </a>
+          </div>
 
-
-
-      <div class="contact-card">
-
-        <div class="contact-header">
-          <h1 class="page-title">Get in Touch</h1>
-          <p class="description mb-0">
-            Let’s connect! You can call me directly or download my CV.
-          </p>
-        </div>
-
-       
-        <div class="contact-cta">
-         
-          <button class="cta-pill fill" type="button" disabled aria-disabled="true">
-            <i class="fa-solid fa-phone"></i>
-            Book a call
-          </button>
-
-
-
-         
-          <a class="cta-pill outline" href="./public/files/marissaNewCV.pdf" download>
-            <i class="fa-solid fa-download"></i>
-            Download CV
-          </a>
-        </div>
-
-       
-        <div class="contact-grid">
-          <div class="contact-info">
-            <div class="info-row">
-              <i class="fa-solid fa-envelope"></i>
-              <div>
-                <div class="info-label">Email</div>
-                <div class="info-value">marissabellebindeki@gmail.com</div>
+          <div class="contact-grid">
+            <div class="contact-info">
+              <div class="info-row">
+                <i class="fa-solid fa-envelope"></i>
+                <div class="info-text">
+                  <div class="info-label">Email</div>
+                  <div class="info-value">marissabellebindeki@gmail.com</div>
+                </div>
               </div>
-            </div>
 
-            <div class="info-row">
-              <i class="fa-solid fa-location-dot"></i>
-              <div>
-                <div class="info-label">Location</div>
-                <div class="info-value"> Sorel-Tracy, Québec, Canada</div>
+              <div class="info-row">
+                <i class="fa-solid fa-location-dot"></i>
+                <div class="info-text">
+                  <div class="info-label">Location</div>
+                  <div class="info-value">Sorel-Tracy, Québec, Canada</div>
+                </div>
               </div>
-            </div>
 
-            <div class="info-row">
-              <i class="fa-brands fa-linkedin"></i>
-              <div>
-                <div class="info-label">LinkedIn</div>
-                <div class="info-value">
-                  <a class="contact-link" href="https://www.linkedin.com/in/marissa-belle-bindeki-b32090333/"
-                    target="_blank">Open profile</a>
+              <div class="info-row">
+                <i class="fa-brands fa-linkedin"></i>
+                <div class="info-text">
+                  <div class="info-label">LinkedIn</div>
+                  <div class="info-value">
+                    <a class="contact-link" href="https://www.linkedin.com/in/marissa-belle-bindeki-b32090333/"
+                      target="_blank" rel="noreferrer">
+                      Open profile
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <form id="contactForm" class="contact-form">
+              <label class="form-label">Name</label>
+              <input id="name" class="form-input" type="text" placeholder="Your name" required />
+
+              <label class="form-label mt-3">Email</label>
+              <input id="email" class="form-input" type="email" placeholder="your@email.com" required />
+
+              <label class="form-label mt-3">Message</label>
+              <textarea id="message" class="form-input form-textarea" placeholder="Write your message..."
+                required></textarea>
+
+              <button id="sendBtn" class="cta-pill fill mt-4" type="submit">
+                <i class="fa-solid fa-paper-plane"></i>
+                Send
+              </button>
+            </form>
           </div>
+        </div>
 
-          <form id="contactForm" class="contact-form">
-            <label class="form-label">Name</label>
-            <input id="name" class="form-input" type="text" placeholder="Your name" required />
+        <!-- ✅ RIGHT -->
+        <div class="contact-right-text">
+          <p>
+            “Great ideas don’t start with code —
+            they start with conversations.
 
-            <label class="form-label mt-3">Email</label>
-            <input id="email" class="form-input" type="email" placeholder="your@email.com" required />
+            I believe meaningful projects are born
+            when curiosity meets collaboration,
+            and when vision is shared with intention.
 
-            <label class="form-label mt-3">Message</label>
-            <textarea id="message" class="form-input form-textarea" placeholder="Write your message..."
-              required></textarea>
-
-            <button id="sendBtn" class="cta-pill fill mt-4" type="submit">
-              <i class="fa-solid fa-paper-plane"></i>
-              Send
-            </button>
-
-          </form>
-
-
+            I’m always open to discussing new ideas,
+            creative challenges, and opportunities
+            that aim to build something impactful.”
         </div>
 
       </div>
-
-      <div class="contact-right-text">
-        <p>
-          “Great ideas start with a simple conversation.<br>
-          I’m always open to new ideas, collaborations,<br>
-          and meaningful projects.”
-        </p>
-      </div>
-
-    </div>
-
+      <!-- ✅ end layout wrapper -->
 
     </div>
   </main>
+
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
   <script type="module" src="./dist/scripts/sendEmail.js"></script>
-  <script  type="module" src="./dist/scripts/navbar.js"></script>
-
+  <script type="module" src="./dist/scripts/navbar.js"></script>
 </body>
 
 </html>

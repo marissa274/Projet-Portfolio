@@ -1,3 +1,7 @@
+/* =========================
+   BASE
+   ========================= */
+
 body{
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -7,11 +11,40 @@ body{
     radial-gradient(circle at 50% 90%, rgba(0,0,0,.25), transparent 55%),
     #590202;
   color: #FFF4C4;
+  overflow-x: hidden;
 }
 
+/* Page wrapper */
 .contact-page{
-  padding-top: 40px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
 }
+.contact-wrap{
+  width: 100%;
+  max-width: 1480px;
+  margin-left: 0;        /* ⬅️ pousse à gauche */
+  margin-right: auto;
+  padding-left: 58px;    /* garde un peu d’air */
+  padding-right: 48px;
+}
+
+
+/* =========================
+   ✅ LAYOUT (CARD LEFT / TEXT RIGHT)
+   ========================= */
+
+.contact-layout{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px; /* card à gauche, texte à droite */
+  gap: 32px;
+  align-items: center;
+}
+
+/* =========================
+   HEADER
+   ========================= */
 
 .page-title{
   font-weight: 900;
@@ -25,50 +58,15 @@ body{
   color: rgba(255,244,196,.78);
   max-width: 760px;
   line-height: 1.7;
+  margin: 0;
 }
 
-.contact-right-text{
-  position: absolute;
-  right: 6%;
-  top: 50%;
-  transform: translateY(-50%);
-
-  max-width: 340px;
-
-  font-size: 1.8rem;
-  line-height: 1.75;
-  font-style: italic;
-  font-weight: 500;
-
-  color: rgba(255,244,196,.72);
-  text-align: left;
-
-  padding-left: 26px;
-
-  pointer-events: none;
-}
-
-.contact-right-text::before{
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  bottom: 8px;
-  width: 2px;
-
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(255,244,196,.55),
-    transparent
-  );
-  border-radius: 2px;
-}
-
-
+/* =========================
+   CARD
+   ========================= */
 
 .contact-card{
-  max-width: 1100px;
+  width: 100%;
   border: 1px solid rgba(255,244,196,.22);
   background: rgba(0,0,0,.18);
   border-radius: 26px;
@@ -77,21 +75,12 @@ body{
   box-shadow: 0 30px 70px rgba(0,0,0,.35);
 }
 
-.contact-page{
-  padding-top: 40px;
-  position: relative;
-}
-
-
-
 .contact-cta{
   display: flex;
   gap: 14px;
   margin-top: 22px;
   flex-wrap: wrap;
 }
-
-
 
 .cta-pill{
   height: 48px;
@@ -105,6 +94,8 @@ body{
   font-weight: 800;
   font-size: 1rem;
   transition: transform .18s ease, opacity .18s ease, background .18s ease, border-color .18s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .cta-pill.fill{
@@ -123,8 +114,9 @@ body{
   opacity: .92;
 }
 
-
-
+/* =========================
+   GRID inside card (info left / form right)
+   ========================= */
 
 .contact-grid{
   margin-top: 28px;
@@ -133,13 +125,15 @@ body{
   gap: 18px;
 }
 
-.contact-info{
+.contact-info,
+.contact-form{
   border: 1px solid rgba(255,244,196,.18);
   background: rgba(0,0,0,.14);
   border-radius: 20px;
   padding: 18px;
 }
 
+/* Info rows */
 .info-row{
   display: flex;
   gap: 12px;
@@ -159,6 +153,11 @@ body{
   place-items: center;
   background: rgba(255,244,196,.10);
   border: 1px solid rgba(255,244,196,.18);
+  flex: 0 0 auto;
+}
+
+.info-text{
+  min-width: 0;
 }
 
 .info-label{
@@ -171,6 +170,8 @@ body{
 
 .info-value{
   font-weight: 800;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact-link{
@@ -178,14 +179,7 @@ body{
   text-decoration: underline;
 }
 
-
-.contact-form{
-  border: 1px solid rgba(255,244,196,.18);
-  background: rgba(0,0,0,.14);
-  border-radius: 20px;
-  padding: 18px;
-}
-
+/* Form */
 .form-label{
   font-weight: 800;
   font-size: .9rem;
@@ -201,6 +195,7 @@ body{
   color: #FFF4C4;
   padding: 0 14px;
   outline: none;
+  box-sizing: border-box;
 }
 
 .form-input::placeholder{
@@ -218,59 +213,73 @@ body{
   color: rgba(255,244,196,.65);
   margin: 0;
 }
+.contact-layout{
+  align-items: flex-start; /* au lieu de center */
+}
+
+.contact-right-text{
+  margin-top: 18px; /* petit ajustement fin */
+}
 
 
-@media (max-width: 992px){
-  .contact-card{ margin-left: 0; }
-  .contact-grid{ grid-template-columns: 1fr; }
+.contact-right-text{
+  position: relative; /* ✅ plus absolute */
+  max-width: 360px;
+  font-size: 1.8rem;
+  line-height: 1.75;
+  font-style: italic;
+  font-weight: 500;
+  color: rgba(255,244,196,.72);
+  text-align: left;
+  padding-left: 26px;
+  pointer-events: none;
+}
+
+.contact-right-text::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(255,244,196,.55), transparent);
+  border-radius: 2px;
 }
 
 
 
+/* =========================
+   RESPONSIVE
+   ========================= */
 
-@media (max-width: 1200px){
-  
-  .contact-right-text{
-    right: 2%;
-    font-size: 1.5rem;
-  }
-}
-
+/* Tablet & down: stack card then text */
 @media (max-width: 992px){
- 
-  .contact-page{
-    padding-top: 24px;
+  .contact-layout{
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
-  
+  .contact-grid{
+    grid-template-columns: 1fr; /* info then form stacked */
+  }
+
   .contact-right-text{
-    position: static;
-    transform: none;
     max-width: 100%;
-    margin-top: 22px;
     padding-left: 0;
+    margin-top: 18px;
     font-size: 1.1rem;
     line-height: 1.6;
-    text-align: left;
   }
 
   .contact-right-text::before{
     display: none;
   }
-
- 
-  .contact-grid{
-    grid-template-columns: 1fr;
-  }
 }
 
+/* Phones */
 @media (max-width: 576px){
-  
-  .contact-page .container-fluid.py-5.px-5{
-    padding: 16px !important;
-  }
+  .contact-wrap{ padding: 0 16px; }
 
-  
   .contact-cta{
     flex-direction: column;
     align-items: stretch;
@@ -281,114 +290,19 @@ body{
     justify-content: center;
   }
 
-  
   .contact-card{
     border-radius: 20px;
     padding: 18px;
   }
 
-  
   .page-title{
     font-size: clamp(2rem, 8vw, 2.8rem);
   }
 }
 
-/* =========================
-   FIX iPhone XR / Mobile
-   ========================= */
+/* iPhone XR-ish */
 @media (max-width: 480px){
-
-  /* évite les scrolls horizontaux causés par un overflow */
-  html, body{
-    overflow-x: hidden;
-  }
-
-  /* padding global plus léger */
-  .contact-page{
-    padding-top: 18px;
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-  /* si tu utilises Bootstrap container/container-fluid */
-  .container,
-  .container-fluid{
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-  }
-
-  /* la grosse card doit rester 100% */
-  .contact-card{
-    width: 100%;
-    max-width: 100%;
-    padding: 16px;
-    border-radius: 18px;
-    margin: 0 auto;
-  }
-
-  /* la grille en 1 colonne */
-  .contact-grid{
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  /* blocs internes */
-  .contact-info,
-  .contact-form{
-    padding: 14px;
-    border-radius: 16px;
-  }
-
-  /* ✅ LE FIX IMPORTANT : texte long (email / liens) doit wrap */
-  .info-value,
-  .contact-link,
-  .details-links a{
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-
-  /* évite que les flex items débordent */
-  .info-row > *{
-    min-width: 0;
-  }
-
-  /* CTA et boutons full width */
-  .contact-cta{
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
-  .cta-pill{
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* form inputs 100% safe */
-  .form-input,
-  .form-textarea{
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-
-  /* typo un peu plus petite pour respirer */
-  .page-title{
-    font-size: 2.05rem;
-    line-height: 1.1;
-  }
-  .description{
-    font-size: .95rem;
-    line-height: 1.6;
-  }
+  .contact-page{ padding: 18px 0; }
+  .contact-card{ padding: 16px; }
+  .contact-info, .contact-form{ padding: 14px; border-radius: 16px; }
 }
-
-.contact-wrap{
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px 48px;
-}
-@media (max-width: 576px){
-  .contact-wrap{ padding: 16px; }
-}
-
