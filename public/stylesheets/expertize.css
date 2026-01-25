@@ -118,13 +118,18 @@ body::before{
   opacity: .7;
 }
 
+/* ✅ FIX iOS flex overflow (JavaScript qui dépasse) */
+.skill-card{
+  min-width: 0;           /* super important */
+}
 
 .skill-card span{
+  flex: 1;                /* le texte prend l'espace dispo */
+  min-width: 0;           /* autorise le shrink en flex */
   white-space: normal;
-  text-align: center;
-  word-break: break-word;
   overflow-wrap: anywhere;
-  line-height: 1.2;
+  word-break: break-word;
+}
 }
 
 
@@ -176,4 +181,13 @@ body::before{
   .skill-card span{
     font-size: .9rem;
   }
+
+  .skill-card{
+  gap: 10px;
+}
+.skill-card i{
+  width: 30px;
+  height: 30px;
+}
+
 }
