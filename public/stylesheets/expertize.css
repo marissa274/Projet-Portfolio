@@ -118,6 +118,11 @@ body::before{
   opacity: .7;
 }
 
+
+.skill-card{
+  min-width: 0;         
+}
+
 .skill-card span{
   flex: 1;
   min-width: 0;
