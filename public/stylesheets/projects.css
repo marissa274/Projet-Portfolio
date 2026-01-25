@@ -432,6 +432,9 @@ body{
     justify-content: center;
   }
 
- 
+  /* ✅ Image/vidéo dans la modal: évite trop grand */
+  .details-media{
+    max-height: 38vh;
+  }
 }
 
