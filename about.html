@@ -1,103 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Marissa's Portfolio | About </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="icon" type="image/svg+xml" href="./public/images/favicon.svg">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="./public/stylesheets/base.css">
-    <link rel="stylesheet" href="./public/stylesheets/about.css">
-    <link rel="stylesheet" href="./public/stylesheets/navbar.css">
-
+  <meta charset="UTF-8">
+  <title>Marissa Belle Bindeki | About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="./public/images/favicon.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./public/stylesheets/base.css">
+  <link rel="stylesheet" href="./public/stylesheets/navbar.css">
+  <link rel="stylesheet" href="./public/stylesheets/about.css">
 </head>
-
-<body>
-<nav class="portfolio-navbar">
-  <div class="nav-left">
-    <a href="index.html" class="nav-brand">Portfolio</a>
-
- 
-    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <div class="nav-right" id="navMenu">
-    <a href="about.html" class="nav-pill outline">About</a>
-    <a href="education.html" class="nav-pill fill">Education</a>
-    <a href="expertize.html" class="nav-pill fill active">Expertise</a>
-    <a href="projects.html" class="nav-pill fill">Projects</a>
-    <a href="contact.html" class="nav-pill outline">Contact</a>
-  </div>
-</nav>
-
-    <div class="d-flex justify-content-between align-items-center pt-4 px-4">
-        <span class="small text-muted">Marissa's Presentation</span>
-
-        <a href="education.html" class="arrow d-flex align-items-center text-dark text-decoration-none">
-            <span class="line me-2"></span>
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
+<body class="theme-light">
+  <nav class="portfolio-navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-brand">MB<span>.</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
 
-
-    <div class="container-fluid vh-100 d-flex align-items-center">
-
-        <div class=" row w-100 h-100 p-5 px-5 ">
-            <div class="hero-name">
-                <h1 class="Text">Bindeki Marissa Belle</h1>
-                <p class="subtitle">Computer Science Student • iOS (SwiftUI) • Web • IoT • Québec</p>
-
-
-                <img src="./public/images/Subject.png" alt="about me image" class="hero-img">
-            </div>
-
-           
-            <div class="  space col-md-6 text-left ">
-
-                <h1 class="Secondtitle">
-                    <span class="about-word">About</span></br>
-                    <span class="me-word">Me</span>
-
-                </h1>
-
-                <p class="description my-4">
-                    Hi, I am Bindeki Marissa Belle, cofounder of HomeMatch and a computer science student passionate about mobile development, web development, and backend
-                    technologies.
-                    I work on personal projects using SwiftUI for mobile applications and Spring Boot or backend
-                    development, focusing on building complete,
-                    functional solutions.</p>
-
-
-                <p class="description">
-                    I also enjoy working on IoT projects and participating in commercial
-                    and non-technical initiatives, allowing me to connect technology with real-world
-                    use cases. Curious and creative, I learn best by building and experimenting.
-                </p>
-
-
-                <div class="cta">
-                        <a href="projects.html" class="cta-pill fill">View Projects</a>
-                        <a href="contact.html" class="cta-pill outline">Contact</a>
-                    </div>
-
-            </div>
-            
-
-
-
-
-
-        </div>
+    <div class="nav-right" id="navMenu">
+      <a href="about.html" class="nav-pill active">About</a>
+      <a href="education.html" class="nav-pill">Education</a>
+      <a href="expertize.html" class="nav-pill">Expertise</a>
+      <a href="projects.html" class="nav-pill">Projects</a>
+      <a href="contact.html" class="nav-pill">Contact</a>
     </div>
 
-   <script  type="module" src="./dist/scripts/navbar.js"></script>
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <main class="page-shell about-page">
+    <section class="about-content">
+      <span class="section-kicker">01</span>
+      <h1 class="section-title">About <span class="accent">Me</span></h1>
+      <div class="section-copy">
+        <p>Hi, I'm Marissa Belle Bindeki, a computer science student passionate about building impactful digital solutions.</p>
+        <p>I enjoy mobile development with SwiftUI, backend development with Spring Boot, and exploring IoT projects.</p>
+        <p>I learn by building, solving real problems, and turning ideas into functional products.</p>
+      </div>
+
+      <div class="about-skills" aria-label="Focus areas">
+        <article><i class="fa-brands fa-swift"></i><strong>SwiftUI</strong></article>
+        <article><i class="fa-solid fa-leaf"></i><strong>Spring Boot</strong></article>
+        <article><i class="fa-solid fa-code"></i><strong>Web Dev</strong></article>
+        <article><i class="fa-solid fa-microchip"></i><strong>IoT</strong></article>
+      </div>
+
+      <a class="btn-red" href="contact.html">Let's Connect <i class="fa-solid fa-arrow-right"></i></a>
+    </section>
+
+    <aside class="about-mark" aria-hidden="true">
+      <span>A</span>
+      <em>About me</em>
+    </aside>
+  </main>
+
+  <script type="module" src="./dist/scripts/navbar.js"></script>
 </body>
-
 </html>

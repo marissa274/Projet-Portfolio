@@ -1,193 +1,158 @@
-html, body {
-  width: 100%;
-  height: 100%;
-}
-
-body{
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255,244,196,.14), transparent 45%),
-    radial-gradient(circle at 80% 35%, rgba(255,244,196,.10), transparent 40%),
-    radial-gradient(circle at 50% 90%, rgba(0,0,0,.25), transparent 55%),
-    #590202;
-  color: #FFF4C4;
-  position: relative;
-  overflow-x: hidden;
-}
-
-body::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-
-  background: url("../images/image.jpg") no-repeat center 95%;
-  background-size: min(100vw, 800rem);
-
-  opacity: .18;
-  filter: grayscale(100%) contrast(1.05);
-
-  mix-blend-mode: screen;
-}
-
-
-
-.expertise-page{
-  position: relative;
-  padding-left: clamp(18px, 4vw, 60px);
-  padding-right: clamp(18px, 4vw, 60px);
-}
-
-
-.expertise-card{
-              
-  background: rgba(0,0,0,.18);
-  border: 1px solid rgba(255,244,196,.22);
-  border-radius: 26px;
-  padding: clamp(18px, 3vw, 34px);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 30px 70px rgba(0,0,0,.35);
-}
-
-
-.page-title{
-  font-weight: 900;
-  letter-spacing: .5px;
-  font-size: clamp(2.6rem, 5vw, 4.6rem);
-  line-height: 1.02;
-  margin: 0;
-}
-
-.page-subtitle{
-  margin-top: 10px;
-  opacity: .85;
-  font-weight: 800;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  font-size: .9rem;
-}
-
-
-
-
-.skills-grid{
-  margin-top: 26px;
+.expertise-page {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 14px;
-}
-
-
-.skill-card{
-  border: 1px solid rgba(255,244,196,.20);
-  background: rgba(0,0,0,.16);
-  border-radius: 18px;
-  padding: 16px 14px;
-  display: flex;
+  grid-template-columns: minmax(260px, 0.62fr) minmax(520px, 1fr);
   align-items: center;
-  gap: 12px;
-  color: #FFF4C4;
-  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+  gap: clamp(30px, 6vw, 90px);
+  background:
+    radial-gradient(circle at 68% 45%, rgba(229, 37, 42, 0.06), transparent 22rem),
+    linear-gradient(135deg, #fff 0%, #fbfbfb 58%, #f1f1f1 100%);
 }
 
-.skill-card i{
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
+.theme-dark .expertise-page {
+  background: transparent;
+}
+
+.expertise-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.expertise-copy .section-copy {
+  margin: 24px 0 28px;
+}
+
+.title-rule {
+  display: block;
+  width: 64px;
+  height: 3px;
+  background: var(--red);
+}
+
+.orbit-map {
+  position: relative;
+  width: min(62vw, 720px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.orbit-map::before,
+.orbit-map::after {
+  content: "";
+  position: absolute;
+  inset: 19%;
+  border: 1px solid rgba(229, 37, 42, 0.34);
+  border-radius: 50%;
+}
+
+.orbit-map::after {
+  inset: 31%;
+  border-style: dashed;
+  border-color: rgba(16, 18, 22, 0.14);
+}
+
+.orbit-center {
+  position: absolute;
+  inset: 39%;
+  z-index: 3;
   display: grid;
   place-items: center;
-  background: rgba(255,244,196,.10);
-  border: 1px solid rgba(255,244,196,.18);
-  font-size: 1.05rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 68% 36%, rgba(229, 37, 42, 0.5), transparent 35%),
+    var(--dark);
+  color: #fff;
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  font-weight: 900;
+  box-shadow: 0 18px 50px rgba(229, 37, 42, 0.28);
 }
 
-.skill-card span{
-  font-weight: 800;
-  letter-spacing: .2px;
+.orbit-center span {
+  color: var(--red);
 }
 
-.skill-card:hover{
-  transform: translateY(-3px);
-  border-color: rgba(255,244,196,.45);
-  background: rgba(0,0,0,.22);
+.bubble {
+  position: absolute;
+  z-index: 4;
+  width: clamp(92px, 10vw, 124px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(16, 18, 22, 0.1);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 18px 42px rgba(16, 18, 22, 0.08);
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  text-align: center;
 }
 
-
-.edu-top .small{
-  opacity: .7;
+.theme-dark .bubble {
+  border-color: var(--dark-line);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
 }
 
-
-.skill-card{
-  min-width: 0;         
+.bubble i {
+  font-size: 1.9rem;
+  color: var(--red);
 }
 
-.skill-card span{
-  flex: 1;
-  min-width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.bubble strong {
+  font-size: 0.8rem;
 }
 
+.bubble.spring i {
+  color: #61ae43;
+}
 
+.bubble.js i {
+  color: #f4c20d;
+}
 
+.bubble.php i {
+  color: #5b6fb0;
+}
 
-@media (max-width: 992px){
-  body::before{
-    background-position: left 10%;
-    background-size: min(55vw, 520px);
-    opacity: .12;
+.swift { left: 50%; top: 3%; transform: translateX(-50%); }
+.spring { right: 8%; top: 18%; }
+.sql { right: 2%; top: 48%; }
+.php { right: 12%; bottom: 8%; }
+.iot { left: 50%; bottom: 2%; transform: translateX(-50%); }
+.js { left: 12%; bottom: 8%; }
+.html { left: 2%; top: 48%; }
+.java { left: 8%; top: 18%; }
+
+@media (max-width: 1020px) {
+  .expertise-page {
+    grid-template-columns: 1fr;
   }
 
-  .skills-grid{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .expertise-card{
-    margin-left: 0; 
+  .orbit-map {
+    width: min(94vw, 660px);
   }
 }
 
-@media (max-width: 576px){
-  body::before{
-    display: none; 
-  }
-
-  .skills-grid{
+@media (max-width: 620px) {
+  .orbit-map {
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
+    width: 100%;
+    aspect-ratio: auto;
   }
 
-  .expertise-page{
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-}
-
-
-@media (max-width: 480px){
-
-  .skills-grid{
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 12px;
+  .orbit-map::before,
+  .orbit-map::after,
+  .orbit-center {
+    display: none;
   }
 
-  .skill-card{
-    padding: 14px 10px;
+  .bubble {
+    position: static;
+    width: 100%;
+    min-height: 106px;
+    aspect-ratio: auto;
+    transform: none;
+    border-radius: 8px;
   }
-
-  .skill-card span{
-    font-size: .9rem;
-  }
-
-  .skill-card{
-  gap: 10px;
-}
-.skill-card i{
-  width: 30px;
-  height: 30px;
-}
-
 }

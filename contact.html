@@ -1,140 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <title>Marissa's Portfolio| Contact</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="./public/images/favicon.svg">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
-
-  <link rel="stylesheet" href="./public/stylesheets/base.css" />
-  <link rel="stylesheet" href="./public/stylesheets/navbar.css" />
-  <link rel="stylesheet" href="./public/stylesheets/contact.css" />
+  <meta charset="UTF-8">
+  <title>Marissa Belle Bindeki | Contact</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="./public/images/favicon.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./public/stylesheets/base.css">
+  <link rel="stylesheet" href="./public/stylesheets/navbar.css">
+  <link rel="stylesheet" href="./public/stylesheets/contact.css">
 </head>
-
-<body>
+<body class="theme-light">
   <nav class="portfolio-navbar">
     <div class="nav-left">
-      <a href="index.html" class="nav-brand">Portfolio</a>
+      <a href="index.html" class="nav-brand">MB<span>.</span></a>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
 
     <div class="nav-right" id="navMenu">
-      <a href="about.html" class="nav-pill outline">About</a>
-      <a href="education.html" class="nav-pill fill">Education</a>
-      <a href="expertize.html" class="nav-pill fill">Expertise</a>
-      <a href="projects.html" class="nav-pill fill">Projects</a>
-      <a href="contact.html" class="nav-pill outline active">Contact</a>
+      <a href="about.html" class="nav-pill">About</a>
+      <a href="education.html" class="nav-pill">Education</a>
+      <a href="expertize.html" class="nav-pill">Expertise</a>
+      <a href="projects.html" class="nav-pill">Projects</a>
+      <a href="contact.html" class="nav-pill active">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+        <i class="fa-solid fa-moon"></i>
+      </button>
     </div>
   </nav>
 
-  <main class="contact-page">
-    <div class="contact-wrap">
+  <main class="page-shell contact-page">
+    <section class="contact-copy">
+      <span class="section-kicker">05</span>
+      <h1 class="section-title">Let's Work <span class="accent">Together.</span></h1>
+      <p class="section-copy">I'm open to opportunities, collaborations, and interesting projects.</p>
 
-      <!-- ✅ NEW: layout wrapper (card gauche / texte droite) -->
-      <div class="contact-layout">
-
-        <!-- ✅ LEFT -->
-        <div class="contact-card">
-          <div class="contact-header">
-            <h1 class="page-title">Get in Touch</h1>
-            <p class="description mb-0">
-              Let’s connect! You can call me directly or download my CV.
-            </p>
-          </div>
-
-          <div class="contact-cta">
-            <button class="cta-pill fill" type="button" disabled aria-disabled="true">
-             <i class="fa-solid fa-arrow-down"></i>
-              Book a call
-            </button>
-
-            <a class="cta-pill outline" href="./public/files/marissaNewCV.pdf" download>
-              <i class="fa-solid fa-download"></i>
-              Download CV
-            </a>
-          </div>
-
-          <div class="contact-grid">
-            <div class="contact-info">
-              <div class="info-row">
-                <i class="fa-solid fa-envelope"></i>
-                <div class="info-text">
-                  <div class="info-label">Email</div>
-                  <div class="info-value">marissabellebindeki@gmail.com</div>
-                </div>
-              </div>
-
-              <div class="info-row">
-                <i class="fa-solid fa-location-dot"></i>
-                <div class="info-text">
-                  <div class="info-label">Location</div>
-                  <div class="info-value">Sorel-Tracy, Québec, Canada</div>
-                </div>
-              </div>
-
-              <div class="info-row">
-                <i class="fa-brands fa-linkedin"></i>
-                <div class="info-text">
-                  <div class="info-label">LinkedIn</div>
-                  <div class="info-value">
-                    <a class="contact-link" href="https://www.linkedin.com/in/marissa-belle-bindeki-b32090333/"
-                      target="_blank" rel="noreferrer">
-                      Open profile
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <form id="contactForm" class="contact-form">
-              <label class="form-label">Name</label>
-              <input id="name" class="form-input" type="text" placeholder="Your name" required />
-
-              <label class="form-label mt-3">Email</label>
-              <input id="email" class="form-input" type="email" placeholder="your@email.com" required />
-
-              <label class="form-label mt-3">Message</label>
-              <textarea id="message" class="form-input form-textarea" placeholder="Write your message..."
-                required></textarea>
-
-              <button id="sendBtn" class="cta-pill fill mt-4" type="submit">
-                <i class="fa-solid fa-paper-plane"></i>
-                Send
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <!-- ✅ RIGHT -->
-        <div class="contact-right-text">
-          <p>
-            “Great ideas don’t start with code —
-            they start with conversations.
-
-            I believe meaningful projects are born
-            when curiosity meets collaboration,
-            and when vision is shared with intention.
-
-            I’m always open to discussing new ideas,
-            creative challenges, and opportunities
-            that aim to build something impactful.”
-        </div>
-
+      <div class="contact-list">
+        <a href="mailto:marissabellebindeki@gmail.com"><i class="fa-solid fa-envelope"></i><span>marissabellebindeki@gmail.com</span></a>
+        <a href="https://www.linkedin.com/in/marissa-belle-bindeki-b32090333/" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin-in"></i><span>linkedin.com/in/marissa-belle-bindeki</span></a>
+        <a href="https://github.com/marissabelle" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i><span>github.com/marissabelle</span></a>
       </div>
-      <!-- ✅ end layout wrapper -->
 
-    </div>
+      <a class="btn-red" href="./public/files/marissaNewCV.pdf" download>
+        Download My CV
+        <i class="fa-solid fa-download"></i>
+      </a>
+    </section>
+
+    <section class="contact-portrait" aria-label="Contact portrait">
+      <div class="red-disc"></div>
+      <div class="dot-field" aria-hidden="true"></div>
+      <img src="./public/images/Subject.png" alt="Marissa Belle Bindeki">
+    </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="module" src="./dist/scripts/sendEmail.js"></script>
   <script type="module" src="./dist/scripts/navbar.js"></script>
 </body>
-
 </html>

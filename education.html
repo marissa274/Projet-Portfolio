@@ -1,117 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <title>Marissa's Portfolio| Education</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="./public/images/favicon.svg">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
-
-  <link rel="stylesheet" href="./public/stylesheets/base.css" />
-  <link rel="stylesheet" href="./public/stylesheets/education.css" />
-  <link rel="stylesheet" href="./public/stylesheets/navbar.css" />
+  <meta charset="UTF-8">
+  <title>Marissa Belle Bindeki | Education</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="./public/images/favicon.svg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./public/stylesheets/base.css">
+  <link rel="stylesheet" href="./public/stylesheets/navbar.css">
+  <link rel="stylesheet" href="./public/stylesheets/education.css">
 </head>
-
-<body>
-<nav class="portfolio-navbar">
-  <div class="nav-left">
-    <a href="index.html" class="nav-brand">Portfolio</a>
-
-  
-    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <div class="nav-right" id="navMenu">
-    <a href="about.html" class="nav-pill outline">About</a>
-    <a href="education.html" class="nav-pill fill">Education</a>
-    <a href="expertize.html" class="nav-pill fill active">Expertise</a>
-    <a href="projects.html" class="nav-pill fill">Projects</a>
-    <a href="contact.html" class="nav-pill outline">Contact</a>
-  </div>
-</nav>
-
-  <section class="edu-hero">
-
-    <div class="edu-top">
-      <span class="small text-white-50">Marissa's Presentation</span>
-
-      <a href="expertize.html" class="arrow d-flex align-items-center text-decoration-none">
-        <span class="line me-2"></span>
-        <i class="fa-solid fa-arrow-right"></i>
-      </a>
+<body class="theme-light">
+  <nav class="portfolio-navbar">
+    <div class="nav-left">
+      <a href="index.html" class="nav-brand">MB<span>.</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
 
-    <div class="edu-wrap">
-     
-      <div class="edu-left">
-
-        <article class="edu-block">
-          <h2>
-            All Saints Bilingual College (ASBC) — Douala, Cameroon
-            <span>Commerce Program | 2019 – 2023</span>
-          </h2>
-
-          <p class="description">
-            Completed a comprehensive commerce-focused curriculum with a strong foundation
-            in business and management studies.
-          </p>
-
-          <p class="description">
-            Coursework included Business Management, Entrepreneurship, Management Information Systems (MIS),
-            Business Mathematics, Financial Accounting, Taxation, Economics, Commerce, and Finance.
-          </p>
-
-          <p class="description">
-            In the final years, was introduced to Computer Science, learning the fundamentals
-            of programming in C, which sparked a growing interest in technology and software development.
-          </p>
-        </article>
-
-        <article class="edu-block mt-5">
-          <h2>
-            Cégep de Sorel-Tracy — Québec, Canada
-            <span>Computer Science | 2024 – 2027 (expected)</span>
-          </h2>
-
-          <p class="description">
-            Currently pursuing a diploma in Computer Science (Techniques de l’informatique)
-            with a focus on programming and applied technologies.
-          </p>
-
-          <p class="description">
-            Studies include software development, web design, mobile development, databases,
-            and IoT (Internet of Things).
-          </p>
-
-          <p class="description">
-            Experienced with Swift, Java, and C, including Arduino-based development,
-            as well as database concepts. Actively building projects that combine
-            frontend, backend, mobile, and embedded systems.
-          </p>
-        </article>
-
-      </div>
-
-
-      
-      <div class="edu-right">
-        <div class="edu-photo">
-          <img src="./public/images/IMG_9576.png" alt="Top laptop" />
-          <img src="./public/images/IMG_7111.png" alt="Bottom laptop" />
-        </div>
-
-
-        <div class="edu-vertical" aria-hidden="true">EDUCATION</div>
-      </div>
+    <div class="nav-right" id="navMenu">
+      <a href="about.html" class="nav-pill">About</a>
+      <a href="education.html" class="nav-pill active">Education</a>
+      <a href="expertize.html" class="nav-pill">Expertise</a>
+      <a href="projects.html" class="nav-pill">Projects</a>
+      <a href="contact.html" class="nav-pill">Contact</a>
     </div>
-  </section>
 
-   <script  type="module" src="./dist/scripts/navbar.js"></script>
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <main class="page-shell education-page">
+    <section class="education-copy">
+      <span class="section-kicker">02</span>
+      <h1 class="section-title">Edu<span class="accent">cation</span></h1>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <time>2024 - 2027 <span>(expected)</span></time>
+          <div>
+            <h2>Cégep de Sorel-Tracy</h2>
+            <p>Computer Science (Techniques de l'informatique). Focused on software development, databases, web, mobile, and IoT technologies.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <time>2019 - 2023</time>
+          <div>
+            <h2>All Saints Bilingual College (ASBC)</h2>
+            <p>Commerce Program. Completed a comprehensive commerce curriculum with courses in management, accounting, economics, finance, and more.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="education-visual">
+      <div class="photo-arc">
+        <img src="./public/images/IMG_9576.png" alt="Laptop with code on a study desk">
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="./dist/scripts/navbar.js"></script>
 </body>
-
 </html>
