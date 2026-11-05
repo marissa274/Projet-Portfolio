@@ -2,11 +2,11 @@
   if (document.getElementById('site-ruler')) return;
   const pages = [
     { label: 'Accueil', href: '/#home', path: '/', section: 'home' },
-    { label: 'Présentation', href: '/#get-to-know', path: '/', section: 'get-to-know' },
-    { label: 'Formation', href: '/education.html', path: '/education.html' },
-    { label: 'Projets', href: '/projects.html', path: '/projects.html' },
-    { label: 'Expertise', href: '/expertize.html', path: '/expertize.html' },
-    { label: 'Contact', href: '/contact.html', path: '/contact.html' },
+    { label: 'Présentation', href: '/#get-to-know', path: '/', section: 'about' },
+    { label: 'Formation', href: '/#education', path: '/education.html', section: 'education' },
+    { label: 'Projets', href: '/projects.html', path: '/projects.html', section: 'projects' },
+    { label: 'Expertise', href: '/expertize.html', path: '/expertize.html', section: 'expertise' },
+    { label: 'Contact', href: '/contact.html', path: '/contact.html', section: 'contact' },
   ];
   const ruler = document.createElement('aside');
   ruler.id = 'site-ruler';
@@ -50,17 +50,28 @@
     frame = 0;
     const maximum = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
     const progress = maximum ? Math.min(1, Math.max(0, window.scrollY / maximum)) : 0;
-    const about = document.getElementById('get-to-know');
-    const isAbout = about && about.getBoundingClientRect().top <= window.innerHeight * 0.5;
     const path = window.location.pathname;
+    let section = path === '/' ? 'home' : path === '/about.html' ? 'about' : pages.find((page) => page.path === path)?.section ?? 'home';
+    if (path === '/') {
+      for (const candidate of document.querySelectorAll('[data-portfolio-section]')) {
+        const bounds = candidate.getBoundingClientRect();
+        if (bounds.top <= window.innerHeight * 0.5 && bounds.bottom > 0 && getComputedStyle(candidate).visibility !== 'hidden') {
+          section = candidate.dataset.portfolioSection;
+        }
+      }
+    }
     const stage = document.querySelector('.home-experience');
-    const visible = path !== '/' || Boolean(isAbout) || stage?.dataset.rulerVisible === 'true';
-    const active = path === '/' ? (isAbout ? 1 : 0) : path === '/about.html' ? 1 : pages.findIndex((page) => page.path === path);
+    const visible = path !== '/' || section !== 'home' || stage?.dataset.rulerVisible === 'true';
+    const active = pages.findIndex((page) => page.section === section);
     fill.style.transform = `scaleY(${progress})`;
     cursor.style.transform = `translateY(${progress * track.clientHeight}px)`;
     ruler.dataset.visible = String(visible);
     ruler.inert = !visible;
     ruler.setAttribute('aria-hidden', String(!visible));
+    if (document.body.dataset.portfolioSection !== section) {
+      document.body.dataset.portfolioSection = section;
+      window.dispatchEvent(new Event('portfolio:section-change'));
+    }
     links.forEach((link, index) => {
       if (index === active) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');

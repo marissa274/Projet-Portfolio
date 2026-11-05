@@ -7,6 +7,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PortraitPoster from './portrait-poster';
 import GetToKnow from './get-to-know';
 import PortraitIntroduction from './portrait-introduction';
+import DoorChapter from './door-chapter';
+import EducationSection from './education-section';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -116,7 +118,8 @@ export default function HomeExperience() {
           <div className="landing-title"><GetToKnow /></div>
         </div>
       </div></div>
-      <PortraitIntroduction />
+      <DoorChapter><PortraitIntroduction /></DoorChapter>
+      <EducationSection />
     </div>
   );
 }

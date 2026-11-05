@@ -459,3 +459,45 @@ main { width: 100%; margin: 0; }
   .puzzle-stage { width: 100%; }
   .puzzle-gap { font-size: clamp(15px, 4.1vw, 22px); }
 }
+
+/* The fixed wordmark follows the chapter rather than repeating the intro. */
+:root { --color-education: var(--text-scroll-5); --color-education-rule: hsl(345, 25%, 35%); }
+.intro-wordmark { display: inline-flex; align-items: baseline; gap: .055em; transition: opacity 300ms ease; }
+.section-wordmark { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 300ms ease; }
+.know-title:not([data-section="home"]) .intro-wordmark { opacity: 0; }
+.know-title:not([data-section="home"]) .section-wordmark { opacity: 1; }
+.about-chapter { height: 185svh; position: relative; background: var(--color-about); }
+.about-chapter-stage { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+.chapter-doors { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.chapter-door { position: absolute; top: 0; width: 50.1%; height: 100%; background: var(--color-education); }
+.chapter-door-left { left: 0; transform: translateX(-101%); border-right: 1px solid var(--color-education-rule); }
+.chapter-door-right { right: 0; transform: translateX(101%); }
+.education-section {
+  min-height: 100svh; background: var(--color-education); color: var(--color-paper);
+  padding: clamp(36px, 6vh, 72px) clamp(28px, 5vw, 80px) clamp(36px, 6vh, 72px) clamp(120px, 12vw, 184px);
+  display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, .7fr); align-items: center; gap: 5vw;
+}
+.education-content h2 { font-size: clamp(32px, 4vw, 64px); font-weight: 700; color: var(--color-rose); line-height: 1.04; letter-spacing: -.045em; margin: 0 0 40px; }
+.education-studies { display: grid; gap: 28px; }
+.education-study { border-top: 1px solid var(--color-education-rule); padding-top: 20px; }
+.education-period { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; margin: 0 0 10px; font-size: 17px; color: var(--color-rose); font-variant-numeric: tabular-nums; }
+.education-period span { font-size: 12px; }
+.education-study h3 { font-family: var(--font-display); font-size: clamp(23px, 2.1vw, 34px); line-height: 1.1; margin: 0 0 12px; font-weight: 600; letter-spacing: -.025em; }
+.education-study h3 span { white-space: nowrap; font-size: .7em; }
+.education-program { color: var(--color-rose); }
+.education-study > p:not(.education-period) { font-size: 15px; line-height: 1.6; margin-block: 8px 0; max-width: 52ch; }
+.education-object img { width: 100%; height: auto; display: block; }
+.site-footer { background: var(--text-scroll-7); }
+@media (max-width: 767px) {
+  .education-section { grid-template-columns: minmax(0, 1fr); padding: 36px 24px 36px 88px; gap: 0; }
+  .education-object { display: none; }
+  .education-content h2 { font-size: 35px; margin-bottom: 28px; }
+  .education-study h3 { font-size: 23px; }
+  .education-study > p:not(.education-period) { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-chapter { height: auto; }
+  .about-chapter-stage { position: relative; height: auto; overflow: visible; }
+  .chapter-doors { display: none; }
+  .intro-wordmark, .section-wordmark { transition: opacity 150ms ease; }
+}

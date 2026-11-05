@@ -74,7 +74,7 @@ export default function PortraitIntroduction() {
   };
 
   return (
-    <section className="portrait-introduction puzzle-introduction" id="get-to-know" aria-labelledby="portrait-introduction-heading" ref={container} data-open={open}>
+    <section className="portrait-introduction puzzle-introduction" id="get-to-know" data-portfolio-section="about" aria-labelledby="portrait-introduction-heading" ref={container} data-open={open}>
       <h2 id="portrait-introduction-heading" className="sr-only">Marissa Bindeki</h2>
       <figure className="puzzle-stage" aria-label="Portrait de Marissa Bindeki qui se sépare pour révéler sa présentation">
         {Array.from({ length: introduction.length + 1 }, (_, index) => (
