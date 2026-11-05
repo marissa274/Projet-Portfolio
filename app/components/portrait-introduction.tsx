@@ -18,11 +18,12 @@ const introduction = [
 export default function PortraitIntroduction() {
   const container = useRef<HTMLElement>(null);
   const animation = useRef<gsap.core.Timeline | null>(null);
+  const stopTurning = useRef<(() => void) | null>(null);
   const targetOpen = useRef(false);
   const manuallyControlled = useRef(false);
   const [open, setOpen] = useState(false);
 
-  useGSAP((_, contextSafe) => {
+  useGSAP(() => {
     const media = gsap.matchMedia();
     media.add({ motion: '(prefers-reduced-motion: no-preference)', reduced: '(prefers-reduced-motion: reduce)' }, (context) => {
       const reduced = context.conditions?.reduced;
@@ -43,14 +44,41 @@ export default function PortraitIntroduction() {
         stagger: reduced ? 0 : 0.07, ease: 'power3.out',
       }, reduced ? 0 : 0.75);
       animation.current = timeline;
+      // Once open, the fragments and their text turn together, one turn starting every 5 seconds.
+      const turns = gsap.utils.toArray<HTMLElement>('.puzzle-turn', container.current!);
+      const turn = gsap.timeline({ paused: true, repeat: -1 });
+      if (!reduced) {
+        turn.fromTo(turns, { rotationY: 0 }, {
+          rotationY: (index) => (index % 2 ? -360 : 360),
+          duration: 1.6, stagger: 0.07, ease: 'power3.inOut', immediateRender: false,
+        }, 5 - (1.6 + 0.07 * (turns.length - 1)));
+      }
+      let visible = true;
+      let settled = false;
+      timeline.eventCallback('onComplete', () => {
+        settled = targetOpen.current;
+        if (settled && visible) turn.restart();
+      });
+      const onScreen = new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        if (visible && settled) turn.play();
+        else turn.pause();
+      });
+      onScreen.observe(container.current!);
+      stopTurning.current = () => {
+        settled = false;
+        turn.pause();
+        gsap.to(turns, { rotationY: '0_short', duration: 0.4, ease: 'power2.out', overwrite: true });
+      };
       ScrollTrigger.create({
         trigger: container.current, start: 'top 60%',
-        onEnter: contextSafe!(() => {
+        // Fires during creation when the page loads already scrolled, so it must not re-enter the GSAP context.
+        onEnter: () => {
           if (manuallyControlled.current) return;
           targetOpen.current = true;
           setOpen(true);
           timeline.play();
-        }),
+        },
       });
       let previousWidth = stage.clientWidth;
       const resize = new ResizeObserver(() => {
@@ -59,7 +87,7 @@ export default function PortraitIntroduction() {
         timeline.invalidate().progress(targetOpen.current ? 1 : 0).pause();
       });
       resize.observe(stage);
-      return () => { resize.disconnect(); animation.current = null; };
+      return () => { resize.disconnect(); onScreen.disconnect(); animation.current = null; stopTurning.current = null; };
     });
     return () => media.revert();
   }, { scope: container });
@@ -70,7 +98,10 @@ export default function PortraitIntroduction() {
     targetOpen.current = !targetOpen.current;
     setOpen(targetOpen.current);
     if (targetOpen.current) animation.current.play();
-    else animation.current.reverse();
+    else {
+      stopTurning.current?.();
+      animation.current.reverse();
+    }
   };
 
   return (
@@ -79,11 +110,13 @@ export default function PortraitIntroduction() {
       <figure className="puzzle-stage" aria-label="Portrait de Marissa Bindeki qui se sépare pour révéler sa présentation">
         {Array.from({ length: introduction.length + 1 }, (_, index) => (
           <div className="puzzle-piece" key={index} style={{ '--piece-index': index } as CSSProperties} aria-hidden="true">
-            <div className="puzzle-photo">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/marissa-portrait-enhanced.png" width="1106" height="1422" alt="" loading="lazy" />
+            <div className="puzzle-turn">
+              <div className="puzzle-photo">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/images/marissa-portrait-enhanced.png" width="1106" height="1422" alt="" loading="lazy" />
+              </div>
+              {index < introduction.length && <span className="puzzle-gap">{introduction[index]}</span>}
             </div>
-            {index < introduction.length && <span className="puzzle-gap">{introduction[index]}</span>}
           </div>
         ))}
         <figcaption className="sr-only">{introduction.join(' ')}</figcaption>

@@ -440,6 +440,7 @@ main { width: 100%; margin: 0; }
   top: calc(var(--piece-index) * 100% / 6); transform-origin: center;
   transform-style: preserve-3d;
 }
+.puzzle-turn { position: absolute; inset: 0; transform-origin: center; transform-style: preserve-3d; }
 .puzzle-photo { position: absolute; inset: 0; overflow: hidden; }
 .puzzle-photo img {
   position: absolute; left: 0; width: 100%; height: 600%;
@@ -461,43 +462,49 @@ main { width: 100%; margin: 0; }
 }
 
 /* The fixed wordmark follows the chapter rather than repeating the intro. */
-:root { --color-education: var(--text-scroll-5); --color-education-rule: hsl(345, 25%, 35%); }
+:root {
+  --color-door-left: var(--text-scroll-1); --color-door-right: var(--text-scroll-4);
+  --door-motif:
+    repeating-linear-gradient(45deg, hsl(350 55% 82% / .055) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(-45deg, hsl(350 55% 82% / .055) 0 1px, transparent 1px 44px);
+}
 .intro-wordmark { display: inline-flex; align-items: baseline; gap: .055em; transition: opacity 300ms ease; }
 .section-wordmark { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 300ms ease; }
 .know-title:not([data-section="home"]) .intro-wordmark { opacity: 0; }
 .know-title:not([data-section="home"]) .section-wordmark { opacity: 1; }
-.about-chapter { height: 185svh; position: relative; background: var(--color-about); }
+.about-chapter { height: 200svh; position: relative; background: var(--color-about); }
 .about-chapter-stage { position: sticky; top: 0; height: 100svh; overflow: hidden; }
 .chapter-doors { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-.chapter-door { position: absolute; top: 0; width: 50.1%; height: 100%; background: var(--color-education); }
-.chapter-door-left { left: 0; transform: translateX(-101%); border-right: 1px solid var(--color-education-rule); }
-.chapter-door-right { right: 0; transform: translateX(101%); }
-.education-section {
-  min-height: 100svh; background: var(--color-education); color: var(--color-paper);
-  padding: clamp(36px, 6vh, 72px) clamp(28px, 5vw, 80px) clamp(36px, 6vh, 72px) clamp(120px, 12vw, 184px);
-  display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, .7fr); align-items: center; gap: 5vw;
-}
-.education-content h2 { font-size: clamp(32px, 4vw, 64px); font-weight: 700; color: var(--color-rose); line-height: 1.04; letter-spacing: -.045em; margin: 0 0 40px; }
-.education-studies { display: grid; gap: 28px; }
-.education-study { border-top: 1px solid var(--color-education-rule); padding-top: 20px; }
-.education-period { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline; margin: 0 0 10px; font-size: 17px; color: var(--color-rose); font-variant-numeric: tabular-nums; }
-.education-period span { font-size: 12px; }
-.education-study h3 { font-family: var(--font-display); font-size: clamp(23px, 2.1vw, 34px); line-height: 1.1; margin: 0 0 12px; font-weight: 600; letter-spacing: -.025em; }
-.education-study h3 span { white-space: nowrap; font-size: .7em; }
-.education-program { color: var(--color-rose); }
-.education-study > p:not(.education-period) { font-size: 15px; line-height: 1.6; margin-block: 8px 0; max-width: 52ch; }
-.education-object img { width: 100%; height: auto; display: block; }
+.chapter-door { position: absolute; top: 0; height: 100%; background-image: var(--door-motif); }
+.chapter-door::before { content: ''; position: absolute; inset: clamp(14px, 3vw, 40px); border: 1px solid hsl(350 55% 82% / .14); }
+.chapter-door-left { left: 0; right: 50%; background-color: var(--color-door-left); transform: translateX(-101%); }
+.chapter-door-right { left: 50%; right: 0; background-color: var(--color-door-right); transform: translateX(101%); }
+/* Hands the wordmark to Education at the collision: the ruler picks this up when its top reaches
+   mid-viewport, 60.7svh into the 100svh chapter scroll (time 0.85 of the 1.4 door timeline). */
+.chapter-door-marker { position: absolute; top: 110.7svh; bottom: 0; left: 0; width: 1px; pointer-events: none; }
+/* Each closed door continues as one half of the Education page, in its own burgundy. */
+.education-section { min-height: 100svh; color: var(--color-paper); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.education-panel { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: clamp(36px, 7vh, 80px) clamp(28px, 4vw, 64px); }
+.education-panel { background-image: var(--door-motif); }
+.education-panel-computer { background-color: var(--color-door-left); padding-left: clamp(120px, 11vw, 176px); }
+.education-panel-business { background-color: var(--color-door-right); }
+.education-period { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(52px, 7vw, 120px); line-height: 1; letter-spacing: -.045em; color: var(--color-rose); font-variant-numeric: lining-nums; white-space: nowrap; }
+.education-study h3 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 68px); line-height: 1.04; margin: 0 0 20px; font-weight: 600; letter-spacing: -.03em; }
+.education-nowrap, .education-abbr { white-space: nowrap; }
+.education-abbr { font-size: .6em; }
+.education-subjects { list-style: none; margin: 0; padding: 0; font-family: var(--font-display); font-size: clamp(26px, 3.4vw, 58px); line-height: 1.12; letter-spacing: -.025em; }
+.education-study p { font-size: clamp(16px, 1.35vw, 21px); line-height: 1.5; margin: 12px 0 0; max-width: 46ch; }
+.education-study .education-program { color: var(--color-rose); }
 .site-footer { background: var(--text-scroll-7); }
 @media (max-width: 767px) {
-  .education-section { grid-template-columns: minmax(0, 1fr); padding: 36px 24px 36px 88px; gap: 0; }
-  .education-object { display: none; }
-  .education-content h2 { font-size: 35px; margin-bottom: 28px; }
-  .education-study h3 { font-size: 23px; }
-  .education-study > p:not(.education-period) { font-size: 14px; }
+  .education-section { grid-template-columns: minmax(0, 1fr); }
+  .education-panel, .education-panel-computer { padding: 36px 24px 36px 88px; min-height: 50svh; justify-content: center; gap: 20px; }
+  .education-period { font-size: 46px; }
+  .education-study h3 { font-size: 30px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .about-chapter { height: auto; }
   .about-chapter-stage { position: relative; height: auto; overflow: visible; }
-  .chapter-doors { display: none; }
+  .chapter-doors, .chapter-door-marker { display: none; }
   .intro-wordmark, .section-wordmark { transition: opacity 150ms ease; }
 }

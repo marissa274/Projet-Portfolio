@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 const sectionLabels: Record<string, string> = {
-  home: 'GET TO KNOW ME', about: 'ABOUT', education: 'EDUCATION',
+  home: 'GET TO KNOW ME', about: 'GET TO KNOW ME', education: 'EDUCATION',
   projects: 'PROJECTS', expertise: 'EXPERTISE', contact: 'CONTACT',
 };
 
@@ -35,7 +35,7 @@ export default function GetToKnow() {
   }, []);
   return (
       <aside className="get-to-know" aria-labelledby="know-title">
-        <h2 className="know-title" id="know-title" aria-label={sectionLabels[section]} data-section={section}>
+        <h2 className="know-title" id="know-title" aria-label={sectionLabels[section]} data-section={section === 'about' ? 'home' : section}>
           <span className="intro-wordmark">
           <AnimatedWord text="GET" />
           <WordObject name="laptop" />
