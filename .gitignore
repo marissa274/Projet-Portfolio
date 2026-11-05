@@ -5,3 +5,6 @@ out/
 public/*.html
 public/legacy-scripts/
 .DS_Store
+test-results/
+playwright-report/
+artifacts/qa/

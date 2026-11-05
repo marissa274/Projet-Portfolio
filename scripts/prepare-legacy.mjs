@@ -9,7 +9,9 @@ for (const page of pages) {
   const html = source
     .replaceAll('./public/', './')
     .replaceAll('./dist/scripts/', './legacy-scripts/')
-    .replaceAll('href="index.html"', 'href="/"');
+    .replaceAll('href="index.html"', 'href="/"')
+    .replace('</head>', '<link rel="stylesheet" href="./stylesheets/site-ruler.css">\n</head>')
+    .replace('</body>', '<script src="./scripts/site-ruler.js" defer></script>\n</body>');
   await writeFile(`public/${page}.html`, html);
 }
 

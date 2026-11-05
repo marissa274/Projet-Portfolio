@@ -338,3 +338,124 @@ main { width: 100%; margin: 0; }
 .creative-demo .creative-brush { right: 3%; top: 2%; }
 .creative-demo .creative-brain { right: 5%; bottom: 2%; }
 @media (prefers-reduced-motion: reduce) { .creative-objects:not(.creative-demo) { display: none; } }
+
+/* Selected option C: individual lines cascade every five seconds. */
+.full-screen-poster .poster-copy { opacity: 1; visibility: visible; transform: none; transition: none; will-change: auto; }
+.full-screen-poster .copy-line > span {
+  transition: transform 900ms var(--ease-out);
+  transition-delay: calc(var(--line-order, 0) * 90ms);
+}
+.full-screen-poster .first-copy .copy-line > span { transform: translateY(0); }
+.full-screen-poster .second-copy .copy-line > span { transform: translateY(115%); }
+[data-copy="second"] .first-copy .copy-line > span { transform: translateY(-115%); }
+[data-copy="second"] .second-copy .copy-line > span { transform: translateY(0); }
+[data-copy="first"] .first-copy .copy-line > span,
+[data-copy="second"] .second-copy .copy-line > span { transition-delay: calc(180ms + var(--line-order, 0) * 90ms); }
+.square-burgundy { position: absolute; inset: 0; background: var(--color-about); opacity: 0; pointer-events: none; }
+.landing-title .ruler-vertical { border-color: var(--color-rose); color: var(--color-rose); }
+.landing-title .ruler-tick { background: var(--color-rose); }
+.landing-title .creative-object { width: clamp(72px, 11vw, 190px); }
+.landing-title .creative-laptop { left: 20%; top: calc(50% - clamp(90px, 13vw, 185px)); }
+.landing-title .creative-brush { left: 53%; right: auto; top: calc(50% - clamp(105px, 15vw, 210px)); }
+.landing-title .creative-brain { right: 15%; top: calc(50% + 24px); bottom: auto; }
+@media (max-width: 767px) {
+  .landing-title .creative-laptop { left: 8%; }
+  .landing-title .creative-brush { left: auto; right: 16%; }
+  .landing-title .creative-brain { right: 8%; top: calc(50% + 30px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .full-screen-poster .copy-line > span { transition: opacity 200ms ease; transition-delay: 0ms !important; transform: none !important; }
+  [data-copy="first"] .second-copy .copy-line > span,
+  [data-copy="second"] .first-copy .copy-line > span { opacity: 0; }
+  [data-copy="first"] .first-copy .copy-line > span,
+  [data-copy="second"] .second-copy .copy-line > span { opacity: 1; }
+}
+
+/* A single typographic composition: objects sit between and touch the words. */
+.landing-title .know-title { display: inline-flex; align-items: baseline; gap: .055em; font-size: clamp(22px, 6.8vw, 124px); overflow: visible; }
+.know-word { position: relative; display: inline-block; }
+.landing-title .know-title .word-object {
+  position: relative; inset: auto; display: inline-block; flex: 0 0 .9em;
+  width: .9em; height: 1em; margin-inline: -.055em; visibility: hidden; z-index: 1;
+}
+.word-object img { position: absolute; left: -.18em; bottom: -.16em; width: 1.3em; height: 1.3em; max-width: none; object-fit: contain; }
+.word-object-brush img { width: 1.55em; height: 1.55em; left: -.28em; bottom: -.2em; }
+@media (prefers-reduced-motion: reduce) {
+  .landing-title .know-title .word-object { visibility: visible; }
+}
+
+.know-word { display: inline-flex; }
+.know-letter { display: inline-block; transform-origin: center bottom; }
+
+/* The docked title stays beside the fixed ruler beyond the opening scene. */
+.landing-sequence .home-experience { z-index: 3; }
+.experience-stage > .landing-title { position: fixed; inset: 0; height: 100svh; }
+.portrait-introduction {
+  min-height: 100svh; background: var(--color-about); color: var(--color-paper);
+  padding: clamp(32px, 5vh, 64px) clamp(28px, 5vw, 80px) 28px clamp(116px, 12vw, 184px);
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px;
+  perspective: 1400px; overflow: clip;
+}
+.portrait-orbit { width: min(100%, 720px, 64svh); perspective: 1200px; transform-style: preserve-3d; }
+.portrait-sheet {
+  position: relative; margin: 0; width: 100%; aspect-ratio: 4 / 5;
+  transform-style: preserve-3d; transition: transform 1400ms var(--ease-out);
+}
+.portrait-sheet > img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 28%; }
+.portrait-bands { position: absolute; inset: 5% -4%; display: flex; flex-direction: column; justify-content: space-between; }
+.portrait-band {
+  min-height: 11%; display: flex; align-items: center; justify-content: center; padding: 10px 12px;
+  background: var(--text-scroll-1); color: var(--color-paper); text-align: center;
+  font-family: var(--font-display); font-size: clamp(18px, min(2.6vw, 3.5svh), 36px);
+  font-weight: 700; letter-spacing: -.035em; line-height: 1.05;
+}
+.portrait-band:nth-child(even) { background: var(--text-scroll-4); }
+.portrait-turn {
+  display: inline-flex; align-items: center; gap: 18px; background: none; color: var(--color-rose);
+  border: 0; border-bottom: 1px solid var(--color-rose); padding: 8px 0;
+  font-family: var(--font-body); font-size: 13px; cursor: pointer;
+}
+.portrait-turn span { font-size: 22px; }
+.portrait-turn:focus-visible { outline: 2px solid var(--color-rose); outline-offset: 6px; }
+@media (max-width: 767px) {
+  .portrait-introduction { padding: 36px 24px 28px 88px; }
+  .portrait-orbit { width: 100%; }
+  .portrait-band { font-size: clamp(16px, 4.4vw, 24px); padding: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .experience-stage > .landing-title { position: absolute; inset: auto 0; top: 100%; height: 30svh; }
+  .portrait-sheet { transition: none; }
+}
+
+/* Real photo fragments open space between them; text lives in those gaps. */
+.puzzle-introduction { padding-block: 36px; gap: 20px; }
+.puzzle-stage {
+  --puzzle-gap: clamp(32px, 4.4svh, 48px);
+  width: min(100%, 580px, 48svh); aspect-ratio: 4 / 5; position: relative;
+  margin: calc(var(--puzzle-gap) * 2.5) 0;
+  perspective: 1400px; transform-style: preserve-3d;
+}
+.puzzle-piece {
+  position: absolute; left: 0; width: 100%; height: calc(100% / 6);
+  top: calc(var(--piece-index) * 100% / 6); transform-origin: center;
+  transform-style: preserve-3d;
+}
+.puzzle-photo { position: absolute; inset: 0; overflow: hidden; }
+.puzzle-photo img {
+  position: absolute; left: 0; width: 100%; height: 600%;
+  top: calc(var(--piece-index) * -100%); object-fit: cover; object-position: center 28%;
+  max-width: none; display: block;
+}
+.puzzle-gap {
+  position: absolute; top: 100%; left: -6%; width: 112%; height: var(--puzzle-gap);
+  display: flex; justify-content: center; align-items: center; padding: 4px 0;
+  color: var(--color-paper); background: none; text-align: center;
+  font-family: var(--font-display); font-weight: 700; letter-spacing: -.025em;
+  font-size: clamp(16px, min(2vw, 2.8svh), 30px); line-height: 1.05;
+  opacity: 0; visibility: hidden; transform-origin: center top;
+}
+@media (max-width: 767px) {
+  .puzzle-introduction { padding: 32px 24px 32px 88px; }
+  .puzzle-stage { width: 100%; }
+  .puzzle-gap { font-size: clamp(15px, 4.1vw, 22px); }
+}

@@ -6,9 +6,11 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(useGSAP);
 
-export default function CreativeObjects({ demo = false }: { demo?: boolean }) {
+export default function CreativeObjects({ demo = false, controlled = false }: { demo?: boolean; controlled?: boolean }) {
   const container = useRef<HTMLDivElement>(null);
   useGSAP((_, contextSafe) => {
+    // The landing scene owns these objects' scroll timeline; the lab plays them independently.
+    if (controlled) return;
     const objects = Array.from(container.current!.querySelectorAll<HTMLElement>('.creative-object'));
     let active = true;
     const start = contextSafe!(() => {
@@ -29,10 +31,10 @@ export default function CreativeObjects({ demo = false }: { demo?: boolean }) {
     const images = Array.from(container.current!.querySelectorAll('img'));
     Promise.all(images.map((image) => image.decode().catch(() => undefined))).then(start);
     return () => { active = false; };
-  }, { scope: container });
+  }, { scope: container, dependencies: [controlled, demo], revertOnUpdate: true });
 
   return (
-    <div className={`creative-objects${demo ? ' creative-demo' : ''}`} ref={container} aria-hidden="true">
+    <div className={`creative-objects${demo ? ' creative-demo' : ''}${controlled ? ' creative-controlled' : ''}`} ref={container} aria-hidden="true">
       {['laptop', 'brush', 'brain'].map((name) => (
         <span className={`creative-object creative-${name}`} key={name}>
           {/* eslint-disable-next-line @next/next/no-img-element */}

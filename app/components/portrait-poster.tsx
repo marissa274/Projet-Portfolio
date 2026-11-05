@@ -1,10 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import CreativeObjects from './creative-objects';
+import { useEffect, useState, type CSSProperties } from 'react';
 
 function CopyLines({ lines }: { lines: string[] }) {
-  return lines.map((line) => <span className="copy-line" key={line}><span>{line}</span></span>);
+  return lines.map((line, index) => <span className="copy-line" key={line} style={{ '--line-order': index } as CSSProperties}><span>{line}</span></span>);
 }
 
 export default function PortraitPoster() {
@@ -21,7 +20,7 @@ export default function PortraitPoster() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img className="portrait" src="/images/marissa-portrait-enhanced.png" width="1106" height="1422" alt="Marissa Bindeki in a black suit against a burgundy background" fetchPriority="high" />
       <div className="poster-square introduction">
-        <CreativeObjects />
+        <div className="square-burgundy" aria-hidden="true" />
         <div className="copy-stack" aria-hidden="true">
           <div className="poster-copy first-copy"><CopyLines lines={['I’m', 'Marissa', 'Bindeki.']} /></div>
           <div className="poster-copy second-copy"><CopyLines lines={['I design,', 'innovate,', 'and create.']} /></div>

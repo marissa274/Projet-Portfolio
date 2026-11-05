@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import Script from 'next/script';
 import './globals.css';
 
 const displayFont = localFont({
@@ -16,5 +17,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className={displayFont.variable}><body>{children}</body></html>;
+  return <html lang="en" className={displayFont.variable}><head><link rel="stylesheet" href="/stylesheets/site-ruler.css" /></head><body>{children}<Script src="/scripts/site-ruler.js" strategy="afterInteractive" /></body></html>;
 }
