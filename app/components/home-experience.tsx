@@ -7,7 +7,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PortraitPoster from './portrait-poster';
 import GetToKnow from './get-to-know';
 import PortraitIntroduction from './portrait-introduction';
-import DoorChapter from './door-chapter';
 import EducationSection from './education-section';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -118,7 +117,10 @@ export default function HomeExperience() {
           <div className="landing-title"><GetToKnow /></div>
         </div>
       </div></div>
-      <DoorChapter><PortraitIntroduction /></DoorChapter>
+      <div className="about-chapter"><div className="about-chapter-stage"><PortraitIntroduction /></div></div>
+      <div className="education-bridge" aria-hidden="true">
+        <svg viewBox="0 0 1440 260" preserveAspectRatio="none"><path d="M0 0H1440V95C1390 95 1405 180 1358 180C1310 180 1340 65 1275 65C1210 65 1240 240 1185 240C1130 240 1160 90 1090 90C1020 90 1045 170 990 170C935 170 960 58 880 58C810 58 835 210 775 210C715 210 750 115 680 115C615 115 650 250 590 250C530 250 560 75 490 75C420 75 450 155 385 155C320 155 355 65 280 65C200 65 230 205 165 205C100 205 130 110 70 110C30 110 35 160 0 160Z" /></svg>
+      </div>
       <EducationSection />
     </div>
   );

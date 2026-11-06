@@ -18,7 +18,7 @@ const introduction = [
 export default function PortraitIntroduction() {
   const container = useRef<HTMLElement>(null);
   const animation = useRef<gsap.core.Timeline | null>(null);
-  const stopTurning = useRef<(() => void) | null>(null);
+  const stopCycle = useRef<(() => void) | null>(null);
   const targetOpen = useRef(false);
   const manuallyControlled = useRef(false);
   const [open, setOpen] = useState(false);
@@ -35,41 +35,35 @@ export default function PortraitIntroduction() {
       timeline.fromTo(pieces, { y: 0, rotationY: 0 }, {
         y: (index) => (index - (pieces.length - 1) / 2) * gapHeight(),
         rotationY: (index) => reduced ? 0 : (index % 2 ? -360 : 360),
-        duration: reduced ? 0 : 1.6, stagger: reduced ? 0 : 0.07,
+        duration: reduced ? 0 : 2.6, stagger: reduced ? 0 : 0.1,
       }, 0);
       timeline.fromTo(gaps, {
         autoAlpha: 0, rotationX: reduced ? 0 : -75,
       }, {
-        autoAlpha: 1, rotationX: 0, duration: reduced ? 0 : 0.65,
-        stagger: reduced ? 0 : 0.07, ease: 'power3.out',
-      }, reduced ? 0 : 0.75);
+        autoAlpha: 1, rotationX: 0, duration: reduced ? 0 : 0.9,
+        stagger: reduced ? 0 : 0.1, ease: 'power3.out',
+      }, reduced ? 0 : 1.25);
       animation.current = timeline;
-      // Once open, the fragments and their text turn together, one turn starting every 5 seconds.
-      const turns = gsap.utils.toArray<HTMLElement>('.puzzle-turn', container.current!);
-      const turn = gsap.timeline({ paused: true, repeat: -1 });
-      if (!reduced) {
-        turn.fromTo(turns, { rotationY: 0 }, {
-          rotationY: (index) => (index % 2 ? -360 : 360),
-          duration: 1.6, stagger: 0.07, ease: 'power3.inOut', immediateRender: false,
-        }, 5 - (1.6 + 0.07 * (turns.length - 1)));
-      }
-      let visible = true;
-      let settled = false;
-      timeline.eventCallback('onComplete', () => {
-        settled = targetOpen.current;
-        if (settled && visible) turn.restart();
-      });
+
+      // The photo turns and recomposes, then turns and separates again. Each wait counts from the
+      // start of the turn, so the text stays settled long enough to read before the next one.
+      const turnDuration = timeline.duration();
+      const waitOpen = turnDuration + 7;
+      const waitRecomposed = turnDuration + 2.5;
+      let cycle: gsap.core.Tween | undefined;
+      const flip = () => {
+        targetOpen.current = !targetOpen.current;
+        setOpen(targetOpen.current);
+        if (targetOpen.current) timeline.play();
+        else timeline.reverse();
+        cycle = gsap.delayedCall(targetOpen.current ? waitOpen : waitRecomposed, flip);
+      };
       const onScreen = new IntersectionObserver(([entry]) => {
-        visible = entry.isIntersecting;
-        if (visible && settled) turn.play();
-        else turn.pause();
+        cycle?.paused(!entry.isIntersecting);
       });
       onScreen.observe(container.current!);
-      stopTurning.current = () => {
-        settled = false;
-        turn.pause();
-        gsap.to(turns, { rotationY: '0_short', duration: 0.4, ease: 'power2.out', overwrite: true });
-      };
+      stopCycle.current = () => cycle?.kill();
+
       ScrollTrigger.create({
         trigger: container.current, start: 'top 60%',
         // Fires during creation when the page loads already scrolled, so it must not re-enter the GSAP context.
@@ -78,6 +72,7 @@ export default function PortraitIntroduction() {
           targetOpen.current = true;
           setOpen(true);
           timeline.play();
+          if (!reduced) cycle = gsap.delayedCall(waitOpen, flip);
         },
       });
       let previousWidth = stage.clientWidth;
@@ -87,7 +82,7 @@ export default function PortraitIntroduction() {
         timeline.invalidate().progress(targetOpen.current ? 1 : 0).pause();
       });
       resize.observe(stage);
-      return () => { resize.disconnect(); onScreen.disconnect(); animation.current = null; stopTurning.current = null; };
+      return () => { resize.disconnect(); onScreen.disconnect(); cycle?.kill(); animation.current = null; stopCycle.current = null; };
     });
     return () => media.revert();
   }, { scope: container });
@@ -95,13 +90,11 @@ export default function PortraitIntroduction() {
   const togglePuzzle = () => {
     if (!animation.current) return;
     manuallyControlled.current = true;
+    stopCycle.current?.();
     targetOpen.current = !targetOpen.current;
     setOpen(targetOpen.current);
     if (targetOpen.current) animation.current.play();
-    else {
-      stopTurning.current?.();
-      animation.current.reverse();
-    }
+    else animation.current.reverse();
   };
 
   return (
@@ -110,13 +103,11 @@ export default function PortraitIntroduction() {
       <figure className="puzzle-stage" aria-label="Portrait de Marissa Bindeki qui se sépare pour révéler sa présentation">
         {Array.from({ length: introduction.length + 1 }, (_, index) => (
           <div className="puzzle-piece" key={index} style={{ '--piece-index': index } as CSSProperties} aria-hidden="true">
-            <div className="puzzle-turn">
-              <div className="puzzle-photo">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/marissa-portrait-enhanced.png" width="1106" height="1422" alt="" loading="lazy" />
-              </div>
-              {index < introduction.length && <span className="puzzle-gap">{introduction[index]}</span>}
+            <div className="puzzle-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/marissa-portrait-enhanced.png" width="1106" height="1422" alt="" loading="lazy" />
             </div>
+            {index < introduction.length && <span className="puzzle-gap">{introduction[index]}</span>}
           </div>
         ))}
         <figcaption className="sr-only">{introduction.join(' ')}</figcaption>

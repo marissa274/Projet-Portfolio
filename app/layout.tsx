@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Script from 'next/script';
 import './globals.css';
+import '@fontsource/caveat/400.css';
+import '@fontsource/caveat/600.css';
 
 const displayFont = localFont({
   src: '../node_modules/@fontsource-variable/bodoni-moda/files/bodoni-moda-latin-wght-normal.woff2',

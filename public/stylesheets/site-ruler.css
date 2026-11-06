@@ -28,3 +28,5 @@ body.theme-dark .site-ruler { --rail-ink: hsl(350, 55%, 82%); }
   .site-ruler-pages a span { left: 26px; font-size: 9px; }
 }
 @media (prefers-reduced-motion: reduce) { .site-ruler { transition: opacity 150ms ease; transform: none; } }
+body[data-portfolio-section="about"] .site-ruler { --rail-ink: hsl(350, 55%, 82%); }
+body[data-portfolio-section="education"] .site-ruler { --rail-ink: hsl(350, 55%, 32%); }
